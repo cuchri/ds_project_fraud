@@ -1,2 +1,2 @@
 # ds_project_fraud
-Mockup exam for datascientest certification
+Mockup exam for datascientest certification.
