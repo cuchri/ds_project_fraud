@@ -3,48 +3,36 @@
 # uvicorn main:app --reload --host 192.168.0.35
 from fastapi import FastAPI
 from fastapi import APIRouter
-from fastapi import Request
+from fastapi import Request, Form, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from pydantic import BaseModel
 from fastapi.staticfiles import StaticFiles
+from schemas import WebForm
+from datetime import datetime, timedelta
 
 app = FastAPI()
 
-class dict(BaseModel):
-    trns_id: str
-    signup_time: str
-    purchase_time: str
-    purchase_value: int
-    device_id: str
-    source: str
-    
-class web(BaseModel):
-    signup_time: str
-    purchase_time: str
-    purchase_value: int
-    device_id: str
-    source: str
-    browser: str
-    sex: str
-    age: int
-    ip_address: str
-    
+#BaseModel class in schemas.py.  
+  
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory = "static"), name = "static")
 
-@app.get("/form/", response_class=HTMLResponse)
+@app.get("/form", response_class=HTMLResponse)
 def index(request: Request):
+    date_now= datetime.now()
+    substract_date=datetime.now() + timedelta(days=-1) 
+    entry_date=substract_date.strftime("%d/%m/%Y %H:%M ")
     data=[
         {'yourname':'John Travolta',
-        'signup_time':'15/06/2015  23:53:20',
-        'purchase_time':'',
-        'purchase_value':'',
+        'signup_time':entry_date,
+        'purchase_time':'0',
+        'purchase_value':'0',
         'device_id':'AANHQRSKUCHIC',
-        'source':'',
-        'browser':'',
-        'sex':'',
-        'age':'',
+        'source':'Ads',
+        'browser':'IE',
+        'sex':'M',
+        'age':'25',
         'ip_address':'4127598609'
         }
     ]
@@ -52,8 +40,18 @@ def index(request: Request):
     return templates.TemplateResponse("form.html",context)
                                       
 
-
-
-@app.post("/upload_web/")
-async def upload_web(form: web):
-    return {"message":form}
+@app.post('/form', response_class=HTMLResponse)
+async def result(request: Request, form_data: WebForm = Depends(WebForm.as_form)):
+    date_now= datetime.now()
+    purchase_date=date_now.strftime("%d/%m/%Y %H:%M")
+    form_data.purchase_time=purchase_date
+    print(form_data)
+    trns_dict="valide"
+    if(trns_dict=="valide"):
+        data=[{'message':'Your donate has been validated.  Thanks you','icon':'check.png'}]
+    elif(trns_dict=="refuse"):
+        data=[{'message':'Your donate isn\'t validated ! Fraud detected !','icon':'uncheck.png'}]
+    else:
+        data=[{'message':'Your donate can\'t be registred. Please try again....','icon':'info.png'}]
+    context ={'request': request,'data':data}
+    return templates.TemplateResponse("response.html",context)

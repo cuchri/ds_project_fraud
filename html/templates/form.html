@@ -27,30 +27,29 @@
 	  </nav>
 	  <section>
 	   <h1><u>Support the future of student</u></h1>
-	   <p><b>My Donation</b> </p>
+	   <p><b>My Donation</b> </p><br>
 	   
-		<form method="post">
+	   <form method="POST" enctype="multipart/form-data">
 			{% for item in data %}
-			<p>Your name ?</p>	
+			<!--p>Your name ?</p>	
 			<div class="imput">
 				<input class="" type="text" maxlength="10" name="yourname" value={{item.yourname}}/>
-			</div>
-			<br>
-			<p>Your age ?</p>	
-			<div class="imput">
-				<input class="" type="text" maxlength="10" name="age" value="{{item.yourname}}"/>
-			</div>
-			<br>
+			</div-->
+			
+			Age:&nbsp&nbsp
+			<input class="" type="text" maxlength="2" id="age" name="age" size="1" value="{{item.age}}"/>
+			&nbsp &nbsp &nbsp &nbsp &nbsp Donate:&nbsp&nbsp
+			<input class="" type="text" maxlength="5" id="purchase_value" name="purchase_value" size="1" value="{{item.purchase_value }}"/>&nbsp€
+			
+			
 			<p>Your sex ?</p>		
 			<div class="select">
-				<select class="" name="sex" >  
+				<select class="" id="sex" name="sex" >  
 					<option value="M"> Male </option>  
 					<option value="F"> Female </option>  
 				</select> 
 			</div>
-			
-			
-			<br>
+			<!--
 			<p>How many will you give us ?</p>
 			<div class="select">
 				
@@ -61,10 +60,10 @@
 					<option>500</option>
 				</select> €
 			</div>
-			<br>
+		-->
 			<p>Where did you find us ?</p>
 			<div class="select">
-				<select class="" name="source" >  
+				<select class="" id="source" name="source" >  
 					<option value="Ads"> Ads </option>  
 					<option value="SEO"> SEO </option>  
 					<option value="Direct"> Direct </option>  
@@ -72,7 +71,7 @@
 			
 			</div>
 			<br>
-			<!--
+			
 			<p>Which browser do use now ?</p>
 			<div class="select">
 				<select class="" name="browser" >  
@@ -85,21 +84,16 @@
 			</div>
 			<br>
 			<br>
-			-->
+			
 			
 			<div class="hidden">
-			
-				<p>
-					<input class="hiddenA" id="deviceid" name="deviceid" type="" value="{{item.device_id}}">
-					<input class="hiddenA" id="ip_address" name="ip_address" type="" value="{{item.ip_address}}">
-				</p>
-				<p>
-					<input class="hiddenA" id="signup_time" name="signup_time" type="" value="{{item.signup_time}}">
-					
-				</p>
+				device_id: <input class="hiddenA" id="device_id" name="device_id" type="" size="7" value="{{item.device_id}}">
+				<br> ip_address: <input class="hiddenA" id="ip_address" name="ip_address" type="" size="7" value="{{item.ip_address}}">
+				<br> signup_time: <input class="hiddenA" id="signup_time" name="signup_time" type="" size="12" value="{{item.signup_time}}">
+				<br> purchase_time: <input class="hiddenA" id="purchase_time" name="purchase_time" type="" size="7" value="{{item.purchase_time}}">
 				<button class="button_view" id="hide">Hide</button>
 			</div>
-			<br>
+			
 			<br>
 			<div>	
 				<div name="" >
@@ -110,12 +104,9 @@
 				{% endfor %}
 		</form>
 			<div class="result">
-			<p>Result: </p>
-			<code>
-				For fraud implement curl action with loop (timediff)
-			<code>
+			
 			</div>
-			<div align="right" >
+			<div >
 				<button class="button_view" id="show">Show</button>
 			</div>
 		</div>
