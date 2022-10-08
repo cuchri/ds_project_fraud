@@ -1,10 +1,10 @@
 CTRL+SHIF +V  for preview
 <pre>
 html
-    ├── attack.py
+    ├── attack.py  <-- injection loop
     ├── info.md
     ├── __init__.py
-    ├── main.py
+    ├── main.py    <--- Starting point uvicorn FastApi
     ├── __pycache__
     │   ├── __init__.cpython-310.pyc
     │   ├── main.cpython-310.pyc
@@ -18,9 +18,9 @@ html
     │   ├── support.png
     │   └── uncheck.png
     └── templates
-        ├── form.html
+        ├── form.html  <-- Get to view form and on Post on submit
         ├── __init__.py
-        └── response.html
+        └── response.html <-- Result of post. (form)
         
 </pre>
 | source |browser|sex|age|purchase
