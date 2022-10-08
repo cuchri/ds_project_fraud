@@ -1,7 +1,7 @@
 from .input_validation import is_valid_input
 from .customer_validation import is_existing_customer, is_fraudulent_customer
 from .feature_engineering import cnt_purchase, sec_since_signup, sec_since_last_purchase
-from ..data.customer import customer_hist
+from ..data.customer import get_customer_hist
 from .training import apply_ohe, apply_scaler
 
 import pandas as pd
@@ -13,7 +13,7 @@ def process_transaction(trns_dict: dict) -> dict:
     :param transaction_data: raw transaction dictionary
     :return transaction_data: enhanced transaction dictionary
     """
-
+    customer_hist = get_customer_hist('./../data/customer_hist.csv')
     trns_dict['is_valid_input'] = is_valid_input(trns_dict)
 
     if trns_dict['is_valid_input']:
