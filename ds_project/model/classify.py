@@ -10,6 +10,7 @@ import pandas as pd
 def process_transaction(trns_dict: dict) -> dict:
     """
     Evaluates webshop transactions
+
     :param transaction_data: raw transaction dictionary
     :return transaction_data: enhanced transaction dictionary
     """
@@ -41,6 +42,7 @@ def process_transaction(trns_dict: dict) -> dict:
 def classify_transaction(trns_dict: dict, ohe, scaler, model, categorical_cols, numerical_cols) -> dict:
     """
     Applies the classification model on the individual transaction
+
     :param trns_dict: raw transaction dictionary
     :param ohe: fitted OneHotEncoder
     :param scaler: fitted StandardScaler

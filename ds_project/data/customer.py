@@ -3,6 +3,7 @@ import pandas as pd
 def get_customer_hist(path) -> pd.DataFrame:
     """
     import table with customer purchase history
+
     :param path: path to the csv file
     :return: df
     """
