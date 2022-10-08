@@ -1,15 +1,11 @@
 CTRL+SHIF +V  for preview
 <pre>
 html
-    ├── attack.py  <-- injection loop
+    ├── attack.py  <-- injection loop  request function.
     ├── info.md
     ├── __init__.py
     ├── main.py    <--- Starting point uvicorn FastApi
-    ├── __pycache__
-    │   ├── __init__.cpython-310.pyc
-    │   ├── main.cpython-310.pyc
-    │   └── schemas.cpython-310.pyc
-    ├── schemas.py
+    ├── schemas.py  ---> data model for Post
     ├── static
     │   ├── check.png
     │   ├── info.png
@@ -23,13 +19,6 @@ html
         └── response.html <-- Result of post. (form)
         
 </pre>
-| source |browser|sex|age|purchase
-|--|--|--|--|--|
-| Ads |Firefox|M|18-69|9-11
-|SEO|Chrome|F|
-|Direct | Safari |
-||IE||
-||Opera|||
 
 class dict(BaseModel):
     trns_id
@@ -67,22 +56,4 @@ conversion: Should we converting ?
 1377849233  --> 82.32.79.145
 
 
-'signup_time':''
-'purchase_time':''
-'purchase_value':''
-'device_id':''
-'source':''
-'browser':''
-'sex':''
-'age':''
-'ip_address':''
 
-{'signup_time':''},
-{'purchase_time':''},
-{'purchase_value':''},
-{'device_id':''},
-{'source':''},
-{'browser':''},
-{'sex':''},
-{'age':''},
-{'ip_address':''}
