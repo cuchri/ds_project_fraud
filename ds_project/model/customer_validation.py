@@ -4,8 +4,10 @@ import pandas as pd
 def is_existing_customer(device_id: str, customer_hist: pd.DataFrame) -> bool:
     """
     Lookup if device_id is present in customer history data
+
     :param device_id: identifyer of an individual customer
     :param customer_hist: DataFrame of individual customer purchase history
+
     :return: True if device_id is in DataFrame, else False
     """
 
@@ -15,9 +17,11 @@ def is_existing_customer(device_id: str, customer_hist: pd.DataFrame) -> bool:
 def is_fraudulent_customer(device_id: str, is_existing_cust: bool, customer_hist: pd.DataFrame) -> bool:
     """
         Lookup if a fraudulent transaction is found in customer history
+
         :param device_id: identifier of an individual customer
         :param is_existing_cust: True if customer has purchase history
         :param customer_hist: DataFrame of individual customer purchase history
+
         :return: True if device_id is in DataFrame, else False
     """
 

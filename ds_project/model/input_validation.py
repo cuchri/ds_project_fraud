@@ -4,6 +4,7 @@ import datetime
 def is_valid_input(raw_data: dict) -> bool:
     """
     Evaluates raw transaction data
+
     :param raw_data: dictionary of transation data of a single purchase
     :return: True if data is consistent, False if data is corrupted
     """
@@ -20,7 +21,9 @@ def is_valid_input(raw_data: dict) -> bool:
 def is_data_missing(raw_data: dict) -> bool:
     """
     Tests for missing data
+
     :param raw_data: original data dict
+
     :return: True if all values are present, else False
     """
 

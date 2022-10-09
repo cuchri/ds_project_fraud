@@ -4,6 +4,15 @@ from sklearn.tree import DecisionTreeClassifier
 import pickle
 
 def apply_ohe(ohe, df, cols):
+    """
+    applies pretrained OneHotEncoder to defined columns of a DataFrame
+
+    :param ohe: pretrained OneHotEncoder
+    :param df: DataFrame, equivalent to the df that ohe was trained on
+    :param cols: Columns, equivalent to the df that ohe was trained on
+
+    :return: onehotencoded dataframe
+    """
     cat_ohe = ohe.transform(df[cols])
 
     # create a Pandas DataFrame of the hot encoded columns
@@ -12,6 +21,14 @@ def apply_ohe(ohe, df, cols):
     return pd.concat([df, ohe_df], axis=1).drop(columns=categorical_cols, axis=1)
 
 def apply_scaler(scaler, df, cols):
+    """
+    applies pretrained Scaler to defined columns of a DataFrame
+
+    :param scaler: pretrained Scaler
+    :param df: DataFrame, equivalent to the df that scaler was trained on
+    :param cols: Columns, equivalent to the df that scaler was trained on
+    :return: scaled dataframe
+    """
     num_scaler = scaler.transform(df[cols])
 
     # create a Pandas DataFrame of the scaled columns
