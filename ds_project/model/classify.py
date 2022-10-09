@@ -73,8 +73,9 @@ def classify_transaction(trns_dict: dict, ohe, scaler, model, categorical_cols, 
 
         # apply model
         classify_trns = model.predict(df_trns)
-        print(classify_trns)
-        # TODO write pred_trns to dict
-        # trns_dict['result']['is_classified_fraud'] = True
+        if classify_trns[0] == '1':
+            trns_dict['result']['is_classified_fraud'] = True
+        else:
+            trns_dict['result']['is_classified_fraud'] = False
 
     return trns_dict
