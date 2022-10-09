@@ -2,14 +2,12 @@
 #/Projects/Datascientest/Examens/Fraud/phase2/html
 # uvicorn main:app --reload --host 192.168.0.35
 from fastapi import FastAPI
-from fastapi import APIRouter
-from fastapi import Request, Form, Depends
+from fastapi import Request, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from pydantic import BaseModel
 from fastapi.staticfiles import StaticFiles
-from schemas import WebForm
 from datetime import datetime, timedelta
+from .schemas import WebForm
 
 app = FastAPI()
 
