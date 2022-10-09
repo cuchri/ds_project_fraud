@@ -11,11 +11,10 @@ def is_valid_input(raw_data: dict) -> bool:
 
     is_data_missing_b = is_data_missing(raw_data)
     is_dtypes_consistent_b = is_dtypes_consistent(raw_data)
-    is_dates_consistent_b = is_dates_consistent(raw_data)
+    is_dates_consistent_b = is_dates_consistent(raw_data.get('signup_time'), raw_data.get('purchase_time'))
+    is_True = [is_data_missing_b, is_dtypes_consistent_b, is_dates_consistent_b]
 
-    return all(is_data_missing_b,
-               is_dtypes_consistent_b,
-               is_dates_consistent_b)
+    return all(is_True)
 
 
 def is_data_missing(raw_data: dict) -> bool:

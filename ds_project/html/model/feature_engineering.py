@@ -31,7 +31,7 @@ def sec_since_signup(dt_signup: datetime, dt_purchase: datetime) -> int:
     if dt_purchase == dt_signup:
         return 0
     else:
-        return (dt_purchase - dt_signup).total_seconds()
+        return int((dt_purchase - dt_signup).total_seconds())
 
 
 def sec_since_last_purchase(device_id: str, dt_purchase: datetime, is_existing_cust: bool,
@@ -50,6 +50,6 @@ def sec_since_last_purchase(device_id: str, dt_purchase: datetime, is_existing_c
         return 0
     else:
         dt_last_purchase = customer_hist[['device_id'] == device_id]['dt_last_purchase']
-        return (dt_purchase - dt_last_purchase).total_seconds()
+        return int((dt_purchase - dt_last_purchase).total_seconds())
 
 
