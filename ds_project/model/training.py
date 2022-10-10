@@ -48,7 +48,7 @@ def train_model(categorical_cols: list, numerical_cols: list):
     :param categorical_cols:
     :param numerical_cols:
     """
-    df_train = pd.read_csv('./../data/fraud_train.csv',
+    df_train = pd.read_csv('../data/fraud_train.csv',
                            dtype={'is_fraud': 'object',
                                   'source': 'category',
                                   'browser': 'category',

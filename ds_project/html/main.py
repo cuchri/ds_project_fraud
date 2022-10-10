@@ -6,7 +6,7 @@ from fastapi.staticfiles import StaticFiles
 from datetime import datetime, timedelta
 
 from schemas import WebForm
-from model.classify import process_transaction, classify_transaction
+
 import pickle
 
 app = FastAPI()
@@ -15,12 +15,15 @@ app = FastAPI()
 
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
-app.mount("/data", StaticFiles(directory="data"), name="data")
+app.mount("/../data", StaticFiles(directory="data"), name="data")
+app.mount("/../model", StaticFiles(directory="model"), name="model")
 
 # load preprocessing and model
-ohe = pickle.load(open('./model/_ohe.sav', 'rb'))
-scaler = pickle.load(open('./model/_scaler.sav', 'rb'))
-model = pickle.load(open('./model/_tree_model.sav', 'rb'))
+ohe = pickle.load(open('model/_ohe.sav', 'rb'))
+scaler = pickle.load(open('model/_scaler.sav', 'rb'))
+model = pickle.load(open('model/_tree_model.sav', 'rb'))
+
+from model.classify import process_transaction, classify_transaction
 
 @app.get("/form", response_class=HTMLResponse)
 def index(request: Request):
