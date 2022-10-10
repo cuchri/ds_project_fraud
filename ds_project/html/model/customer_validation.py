@@ -7,13 +7,13 @@ def get_customer_hist(path) -> pd.DataFrame:
     :param path: path to the csv file
     :return: df
     """
-    #TODO remove Index col from csv
     customer_hist = pd.read_csv(path,
                                 dtype={'device_id': object,
                                   'is_fraudulent_customer': 'category',
                                   'cnt_purchase': int,
                                   },
-                                parse_dates='purchase_time',
+                                parse_dates=['purchase_time'],
+                                index_col=0
                            )
     return customer_hist
 

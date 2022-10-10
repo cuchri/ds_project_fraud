@@ -43,6 +43,11 @@ def apply_scaler(scaler, df, cols):
 ###################################################################################################
 
 def train_model(categorical_cols: list, numerical_cols: list):
+    """
+    read training data and fit preprocessing and model; store OneHotEncoder, Scaler and Model as pickle files
+    :param categorical_cols:
+    :param numerical_cols:
+    """
     df_train = pd.read_csv('./../data/fraud_train.csv',
                            dtype={'is_fraud': 'object',
                                   'source': 'category',

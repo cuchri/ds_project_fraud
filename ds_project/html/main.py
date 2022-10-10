@@ -15,12 +15,12 @@ app = FastAPI()
 
 templates = Jinja2Templates(directory="templates")
 app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/data", StaticFiles(directory="data"), name="data")
 
 # load preprocessing and model
 ohe = pickle.load(open('./model/_ohe.sav', 'rb'))
 scaler = pickle.load(open('./model/_scaler.sav', 'rb'))
 model = pickle.load(open('./model/_tree_model.sav', 'rb'))
-
 
 @app.get("/form", response_class=HTMLResponse)
 def index(request: Request):
@@ -31,7 +31,7 @@ def index(request: Request):
          'signup_time': entry_date,
          'purchase_time': '0',
          'purchase_value': '0',
-         'device_id': 'AANHQRSKUCHIC',
+         'device_id': 'AAAWIHVCQELTP',
          'source': 'Ads',
          'browser': 'IE',
          'sex': 'M',
@@ -68,7 +68,6 @@ async def result(request: Request, form_data: WebForm = Depends(WebForm.as_form)
     trns_dict = process_transaction(trns_dict)
     print('classify start')
     trns_dict = classify_transaction(trns_dict, ohe, scaler, model)
-
     print('trns_dict: ', trns_dict)
 
     if not trns_dict['result']['is_classified_fraud']:

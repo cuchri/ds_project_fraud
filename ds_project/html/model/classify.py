@@ -14,11 +14,8 @@ def process_transaction(trns_dict: dict) -> dict:
     :param trns_dict: raw transaction dictionary
     :return trns_dict: enhanced transaction dictionary
     """
-    # TODO replace customer_hist by load of csv
-    # customer_hist = get_customer_hist('customer_hist.csv')
-    customer_hist = pd.DataFrame([['AAALBGNHHVMKG', '0', 1, '2015-06-13 23:42:18'],
-                                  ['AAAWIHVCQELTP', '0', 1, '2015-03-29 00:39:07']],
-                                 columns=['device_id', 'is_fraudulent_customer', 'cnt_purchase', 'purchase_time'])
+
+    customer_hist = get_customer_hist('data/customer_hist.csv')
 
     trns_dict['is_valid_input'] = is_valid_input(trns_dict)
 
