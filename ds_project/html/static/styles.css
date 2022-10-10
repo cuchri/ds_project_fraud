@@ -1,0 +1,188 @@
+
+body {
+    color: #FF5555;			  
+}
+
+h1 {
+    margin: 20px 0 0.25em;
+    text-align: left;
+    font-size:26 px;
+}
+
+header,
+nav
+{
+    border: 0px solid rgba(255,255,255,0.8);
+    margin-bottom: 5px;
+    border-radius: 3px;
+    text-align: center;	
+}
+
+section {
+padding: 1px 15px;
+    border: 1px solid rgba(255,255,255,0.8);
+}
+
+header {
+    padding: 5px 5px;
+    text-align: center;
+    font-size:1.2em;
+    
+}
+
+nav{
+    padding: 100px 0;
+}
+
+input {
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    font-size:1.1em;
+    flex: 1;
+    padding: 8px .6em;
+    color: #00000;
+    background-color: #dddddd;
+    background-image: none;
+    cursor: pointer;
+    height: 1.6em;
+    text-align: center;
+}
+
+.hidden{
+font-size:1em;
+margin: 1px 0 0.25em;
+}
+
+.hiddenA{
+font-size:1em;
+margin: 1px 0 0.25em;
+background-color: #aaaaaa;
+}
+                
+select {
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    font-size:1.1em;
+    flex: 2;
+    padding: 0 1em;
+    color: #00000;
+    background-color: #dddddd;
+    background-image: none;
+    cursor: pointer;
+}
+
+submit {
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    font-size:1.1em;
+    flex: 3;
+    border-radius: .25em;
+    padding: 0 1em;
+    color: #00000;
+    background-color: #dddddd;
+    background-image: none;
+    cursor: pointer;
+}
+                
+.select {
+    position: relative;
+    display: flex;
+    width: 20em;
+    height: 1.8em;
+    border-radius: .25em;
+    overflow: hidden;
+    background-color: #FFdddd;
+}
+
+.select::after {
+    content: '\25BC';
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 0.5em;
+    background-color: #34495e;
+    transition: .25s all ease;
+    pointer-events: none;
+}
+.select::hover {
+    color: #f39c12;
+    background-color: #FF495e;
+}
+
+.select:hover::after {
+    color: #f39c12;
+    background-color: #FF495e;
+}
+
+button {
+    appearance: none;
+    outline: 0;
+    border: 0;
+    box-shadow: none;
+    font-size:2em;
+    flex: 2;
+    padding: 0 3.4em;
+    color: #00000;
+    background-color: #aaaaee;
+    background-image: none;
+    cursor: pointer;
+    height: 1.6em;
+}
+
+    .button_view {
+    height: 1.6em;
+    font-size:.8em;
+    padding: 0 2em;
+    text-align: right;
+    background-color: #5080c9;
+    color: #dddddd;
+}
+
+.wrapper {
+    width: 960px;
+    margin: 0 auto;
+}
+
+header {
+    width: 960px;
+}
+
+nav, section {
+    float: left;
+}
+
+nav {
+    width: 100px;
+    margin-right: 10px;
+}
+
+section {
+    width: 380px;
+}
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background: #2980b9;
+    color: #FFF;
+    font-family: Helvetica;
+    text-align: left;
+    margin: 0;
+}
+.message{
+    border: 0px solid rgba(255,255,255,0.8);
+    padding: 160px 15px;
+    text-align: center;	
+    font-size:1.8em;
+
+}
