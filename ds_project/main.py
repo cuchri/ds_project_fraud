@@ -1,3 +1,9 @@
+"""
+main.py
+====================================
+The core module of DS_project fraud
+"""
+
 from fastapi import FastAPI
 from fastapi import Request, Depends
 from fastapi.responses import HTMLResponse
@@ -9,18 +15,17 @@ import pickle
 from pathlib import Path
 import os
 
-
 BASE_PATH = Path(__file__).resolve().parent
-
+#print(BASE_PATH)
 
 app = FastAPI()
 
-templates = Jinja2Templates(directory="./templates")
-app.mount("/html", StaticFiles(directory="html"), name="html")
-app.mount("/data", StaticFiles(directory="data"), name="data")
-app.mount("/model", StaticFiles(directory="model"), name="model")
-app.mount("/static", StaticFiles(directory=str(BASE_PATH / "./static")), name="static")
+# BaseModel class in schemas.py.
 
+templates = Jinja2Templates(directory="templates")
+app.mount("/static", StaticFiles(directory="static"), name="static")
+app.mount("/../data", StaticFiles(directory="data"), name="data")
+app.mount("/../model", StaticFiles(directory="model"), name="model")
 
 # load preprocessing and model
 ohe = pickle.load(open('model/_ohe.sav', 'rb'))
@@ -28,7 +33,7 @@ scaler = pickle.load(open('model/_scaler.sav', 'rb'))
 model = pickle.load(open('model/_tree_model.sav', 'rb'))
 
 from model.classify import process_transaction, classify_transaction
-from schemas import WebForm
+from html.schemas import *
 from html import templates
 
 @app.get("/form", response_class=HTMLResponse)
@@ -65,7 +70,7 @@ async def result(request: Request, form_data: WebForm = Depends(WebForm.as_form)
     Processes the data from the form - calls data preprocessing and applies the model
     :param request: simulates a transaction that calls the model
     :param form_data: transaction data
-    :return response: decision of the model
+    :return response:
     """
     date_now = datetime.now()
     purchase_date = date_now.strftime("%d/%m/%Y %H:%M:%S")

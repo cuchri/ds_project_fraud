@@ -15,3 +15,12 @@ included modules and a diagram showing the process.
     Html <ds_project.html.rst>
     Model <ds_project.model.rst>
     Data <ds_project.data.rst>
+
+Main
+====
+	Starting point for complete Fraud API is main.py (root folder).
+		**Include:**
+
+		- Fastapi modules: FastApi,Request,Depends,HTMLResponse,Jinja2Templates,StaticFiles.
+		- Python modules: datetime,
+		- Fraud modules (see in DATA and MODEL)

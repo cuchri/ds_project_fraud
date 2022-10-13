@@ -37,7 +37,11 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#"> Html</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ds-project-html-main-module">ds_project.html.main module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tree">Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app">App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ds_project.model.html"> Model</a></li>
@@ -70,8 +74,177 @@
              
   <div class="section" id="ds-project-html-package">
 <h1>ds_project.html package<a class="headerlink" href="#ds-project-html-package" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="ds-project-html-main-module">
-<h2>ds_project.html.main module<a class="headerlink" href="#ds-project-html-main-module" title="Permalink to this headline">¶</a></h2>
+<p>Display part via http.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="tree">
+<h2>Tree<a class="headerlink" href="#tree" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>html</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>static</dt>
+<dd><ul class="first last">
+<li>check.png</li>
+<li>info.png</li>
+<li>jquery-3.5.0.min.js</li>
+<li>style.css</li>
+<li>support.png</li>
+<li>uncheck.png</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>templates</dt>
+<dd><ul class="first last">
+<li>form.html</li>
+<li>response.html</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<ul class="simple">
+<li>schemas.py</li>
+<li>attack.py</li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Reminder:</th><td class="field-body">Entry point for Fraud Dectection is main.py (root folder). It will display form.html, manage submit, modules and response.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>schemas.py</dt>
+<dd><dl class="first last docutils">
+<dt><strong>Include Class WebForm</strong></dt>
+<dd><ul class="first last">
+<li>signup_time: str</li>
+<li>purchase_value: int</li>
+<li>purchase_time: str</li>
+<li>device_id: str</li>
+<li>source: str</li>
+<li>browser: str</li>
+<li>sex: str</li>
+<li>age: int</li>
+<li>ip_address: str “</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>attack.py</dt>
+<dd><dl class="first last docutils">
+<dt><strong>Injection loop (4X) on FastApi url.</strong></dt>
+<dd><ul class="first last">
+<li>urldata: Server + port /form</li>
+<li><dl class="first docutils">
+<dt>data: <em>(Data manually choice)</em></dt>
+<dd><ul class="first last">
+<li>‘signup_time’:’’,</li>
+<li>‘purchase_value’:’’,</li>
+<li>‘purchase_time’:’’,</li>
+<li>‘device_id’:’’,</li>
+<li>‘source’:’’,</li>
+<li>‘browser’:’’,</li>
+<li>‘sex’:’’,</li>
+<li>‘age’:’5’,</li>
+<li>‘ip_address’:’’</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="templates">
+<h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt><strong>form.html</strong></dt>
+<dd>Template base on Jinja2Templates. Use for Get action.</dd>
+<dt><strong>response.html</strong></dt>
+<dd>Template base on Jinja2Templates. Use for Post action.</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="app">
+<h2>App<a class="headerlink" href="#app" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>&#64;app.get(“/form”, response_class=HTMLResponse)</dt>
+<dd><ul class="first last">
+<li>Initialisation variables for form.html</li>
+<li>Render template form.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>&#64;app.post(‘/form’, response_class=HTMLResponse)</dt>
+<dd><ul class="first last">
+<li>Reception of submit data from form.html</li>
+<li>Call all process modules in MODEL folder</li>
+<li>Render template response. (Fraud or not)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>trns_dict =</dt>
+<dd><dl class="first last docutils">
+<dt>-‘raw’:</dt>
+<dd><ul class="first last">
+<li>‘signup_time’:datetime.strptime(form_data.signup_time,’%d/%m/%Y %H:%M:%S’),</li>
+<li>‘purchase_time’:datetime.strptime(form_data.purchase_time,’%d/%m/%Y %H:%M:%S’),</li>
+<li>‘purchase_value’:form_data.purchase_value,</li>
+<li>‘device_id’:form_data.device_id,</li>
+<li>‘source’:form_data.source,</li>
+<li>‘browser’:form_data.browser,</li>
+<li>‘sex’:form_data.sex,</li>
+<li>‘age’:form_data.age,</li>
+<li>‘ip_address’:form_data.ip_address</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li>purchase_date = Date Now.</li>
+<li>data = Request submit datas.</li>
+</ul>
+</div></blockquote>
 </div>
 </div>
 
