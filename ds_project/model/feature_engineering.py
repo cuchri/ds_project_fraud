@@ -13,7 +13,7 @@ def cnt_purchase(device_id: str, is_existing_cust: bool, customer_hist: pd.DataF
     :return: cnt of puchases by customer
     """
     if is_existing_cust:
-        return customer_hist[['device_id'] == device_id]['cnt_purchase'] + 1
+        return customer_hist[customer_hist['device_id'] == 'ABCDEFGH']['cnt_purchase'].item() + 1
     else:
         return 1
 
