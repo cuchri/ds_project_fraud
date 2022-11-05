@@ -1,6 +1,7 @@
 from .feature_engineering import cnt_purchase, sec_since_signup, sec_since_last_purchase
 import pandas as pd
 import numpy as np
+from datetime import datetime
 
 
 
@@ -23,7 +24,15 @@ def test_cnt_purchase(df_customer_hist):
 
 
 def test_sec_since_signup():
+    # The use cases:
+    """dt_signup == dt_purchase"""
+    assert sec_since_signup(datetime(2015, 4, 28, 21, 13, 25), datetime(2015, 4, 28, 21, 13, 25)) == 0
+    """dt_signup < dt_purchase"""
+    assert sec_since_signup(datetime(2015, 4, 28, 21, 13, 25), datetime(2015, 4, 28, 21, 13, 30)) == 5
 
+    # The edge cases:
+    """dt_signup > dt_purchase"""
+    assert sec_since_signup(datetime(2015, 4, 28, 21, 13, 30), datetime(2015, 4, 28, 21, 13, 25)) == 0
 
 
 def test_sec_since_last_purchase():

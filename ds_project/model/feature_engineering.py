@@ -28,7 +28,7 @@ def sec_since_signup(dt_signup: datetime, dt_purchase: datetime) -> int:
     :return: time elapsed in seconds
     """
 
-    if dt_purchase == dt_signup:
+    if dt_purchase <= dt_signup:
         return 0
     else:
         return int((dt_purchase - dt_signup).total_seconds())
