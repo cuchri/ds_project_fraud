@@ -4,17 +4,16 @@ import numpy as np
 from datetime import datetime
 
 
-
 data = {
-    'device_id':['ABCDEFGH'],
-    'dt_purchase':'2015-04-28 21:13:25',
-    'cnt_purchase':[int(2)]
+    'device_id': ['ABCDEFGH'],
+    'dt_purchase': '2015-04-28 21:13:25',
+    'cnt_purchase': [int(2)]
 }
 df_customer_hist = pd.DataFrame.from_dict(data).astype({'device_id': object, 'cnt_purchase':int})
 
 
 def test_cnt_purchase(df_customer_hist):
-    #The use cases:
+    # The use cases:
     """New customer"""
     assert cnt_purchase('ZYXWVUT', False, df_customer_hist) == 1
 
