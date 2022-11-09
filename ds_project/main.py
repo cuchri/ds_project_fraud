@@ -1,17 +1,20 @@
+import os
+import sys
+
 from fastapi import FastAPI
 from fastapi import Request, Depends
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
 from fastapi.staticfiles import StaticFiles
+import uvicorn
+
 from datetime import datetime, timedelta
-from html.schemas import *
-from html import templates
 import pickle
 from pathlib import Path
-import os
 
 BASE_PATH = Path(__file__).resolve().parent
-#print(BASE_PATH)
+print(BASE_PATH)
+from html.schemas import WebForm
 
 app = FastAPI()
 
@@ -90,3 +93,7 @@ async def result(request: Request, form_data: WebForm = Depends(WebForm.as_form)
     context = {'request': request, 'data': data}
     return templates.TemplateResponse("response.html", context)
     
+if __name__ == "__main__":
+    config = uvicorn.Config("main:app", port=8000, host='0.0.0.0', log_level="debug")
+    server = uvicorn.Server(config)
+    server.run()
