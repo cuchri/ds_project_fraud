@@ -28,7 +28,7 @@ def is_existing_customer(device_id: str, customer_hist: pd.DataFrame) -> bool:
     :return: True if device_id is in DataFrame, else False
     """
 
-    return device_id in customer_hist['device_id']
+    return device_id in customer_hist['device_id'].values
 
 
 def is_fraudulent_customer(device_id: str, is_existing_cust: bool, customer_hist: pd.DataFrame) -> bool:
@@ -43,6 +43,6 @@ def is_fraudulent_customer(device_id: str, is_existing_cust: bool, customer_hist
     """
 
     if is_existing_cust:
-        return customer_hist[customer_hist['device_id'] == device_id]['is_fraudulent_customer'][0]
+        return customer_hist[customer_hist['device_id'] == device_id]['is_fraudulent_customer'].values[0]
     else:
         return False
