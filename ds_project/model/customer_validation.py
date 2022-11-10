@@ -43,6 +43,6 @@ def is_fraudulent_customer(device_id: str, is_existing_cust: bool, customer_hist
     """
 
     if is_existing_cust:
-        return customer_hist[['device_id'] == device_id]['is_fraudulent_customer']
+        return customer_hist[customer_hist['device_id'] == device_id]['is_fraudulent_customer'][0]
     else:
         return False

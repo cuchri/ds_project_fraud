@@ -1,4 +1,4 @@
-from .feature_engineering import cnt_purchase, sec_since_signup, sec_since_last_purchase
+from ds_project.model.feature_engineering import cnt_purchase, sec_since_signup, sec_since_last_purchase
 import pandas as pd
 import numpy as np
 from datetime import datetime
