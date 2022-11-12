@@ -10,10 +10,8 @@ jobs:
     steps:
       - name: print working directory
         run: pwd
-      - name: Check out repository code
-        uses: actions/checkout@v3
       - name: Setup Python
-        uses: actions/setup-python@v2
+        uses: actions/setup-python@v3
         with:
           python-version: "3.x"
       - name: Install pytest
