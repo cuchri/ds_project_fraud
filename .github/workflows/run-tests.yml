@@ -1,0 +1,14 @@
+name: Run tests
+on:
+  push:
+  pull_request:
+    branches:
+      - main
+jobs:
+  run-shell-command:
+    runs-on: ubuntu-latest
+    steps:
+      - name: print working directory
+        run: pwd
+      - name: Run tests on pytest
+        run: python3 -m pytest
