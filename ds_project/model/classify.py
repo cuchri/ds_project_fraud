@@ -4,7 +4,6 @@ from .feature_engineering import cnt_purchase, sec_since_signup, sec_since_last_
 from .training import apply_ohe, apply_scaler, categorical_cols, numerical_cols
 
 import pandas as pd
-import pickle
 
 
 def process_transaction(trns_dict: dict) -> dict:
@@ -17,7 +16,7 @@ def process_transaction(trns_dict: dict) -> dict:
 
     customer_hist = get_customer_hist('data/customer_hist.csv')
 
-    trns_dict['is_valid_input'] = is_valid_input(trns_dict)
+    trns_dict['is_valid_input'] = is_valid_input(trns_dict.get('raw'))
 
     if trns_dict['is_valid_input']:
         # get historic customer information
