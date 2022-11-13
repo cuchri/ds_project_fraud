@@ -1,0 +1,5 @@
+Create a .github/workflows
+
+[Actions secrets (github.com)](https://github.com/philippelerch68/desktop-tutorial/settings/secrets/actions)
+
+DOCKER_PASSWORD
