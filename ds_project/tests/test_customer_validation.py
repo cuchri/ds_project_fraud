@@ -1,4 +1,4 @@
-from ..model.customer_validation import is_existing_customer, is_fraudulent_customer
+from ..model.customer_validation import get_customer_hist, is_existing_customer, is_fraudulent_customer
 import pandas as pd
 import pytest
 
@@ -10,6 +10,10 @@ def df_customer_hist():
         'is_fraudulent_customer': [True, False]
     }
     return pd.DataFrame.from_dict(data).astype({'device_id': object})
+
+
+def test_get_customer_hist():
+    assert isinstance(get_customer_hist('test_customer_hist.csv'), pd.DataFrame) == True
 
 
 def test_is_existing_customer(df_customer_hist):
