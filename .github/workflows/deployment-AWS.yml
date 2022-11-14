@@ -1,4 +1,4 @@
-name: Fraud github to dockerhub action script aimage/container
+name: Fraud github to dockerhub action script aimage/container.
 
 on:
   push:
