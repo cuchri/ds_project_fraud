@@ -10,8 +10,6 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v3
-      - name: set github_path
-        run: echo '/home/runner/work/ds_project_fraud/ds_project_fraud/ds_project/tests' >> $GITHUB_PATH
       - name: Setup Python
         uses: actions/setup-python@v3
         with:
