@@ -1,0 +1,21 @@
+name: Fraud github to dockerhub action script aimage/container.
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+
+  build:
+
+  runs-on: ubuntu-latest
+
+  steps:
+  - uses: actions/checkout@v3
+  - name: Build & Push Image
+    run: |
+      echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "philippelerch68" --password-stdin
+      docker image build -t philippelerch68/ds_project_fraud:latest .
+      docker push philippelerch68/ds_project_fraud:latest
