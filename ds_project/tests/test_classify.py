@@ -42,7 +42,7 @@ def trns_dict_bad():
 
 
 #process_transaction
-def process_transaction_on_good_input(trns_dict_good):
+def test_process_transaction_on_good_input(trns_dict_good):
     process_transaction(trns_dict_good, cust_hist_path='ds_project/tests/test_customer_hist.csv')
     assert trns_dict_good.get('is_valid_input') == True
     assert trns_dict_good.get('is_existing_customer') == True
@@ -51,7 +51,7 @@ def process_transaction_on_good_input(trns_dict_good):
     assert trns_dict_good.get('feature').get('sec_since_signup') == 5
     assert trns_dict_good.get('feature').get('sec_since_last_purchase') == 120
 
-def process_transaction_on_bad_input(trns_dict_bad):
+def test_process_transaction_on_bad_input(trns_dict_bad):
     process_transaction(trns_dict_bad, cust_hist_path='ds_project/tests/test_customer_hist.csv')
     assert trns_dict_bad.get('is_valid_input') == False
     assert ('is_existing_customer' in trns_dict_bad.keys()) == False
