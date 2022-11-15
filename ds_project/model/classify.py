@@ -9,7 +9,7 @@ from requests.structures import CaseInsensitiveDict
 from datetime import datetime
 
 
-def process_transaction(trns_dict: dict) -> dict:
+def process_transaction(trns_dict: dict, cust_hist_path='data/customer_hist.csv') -> dict:
     """
     Evaluates webshop transactions
 
@@ -17,7 +17,7 @@ def process_transaction(trns_dict: dict) -> dict:
     :return trns_dict: enhanced transaction dictionary
     """
 
-    customer_hist = get_customer_hist('data/customer_hist.csv')
+    customer_hist = get_customer_hist(cust_hist_path)
 
     trns_dict['is_valid_input'] = is_valid_input(trns_dict.get('raw'))
 
