@@ -29,7 +29,7 @@ ohe = pickle.load(open('model/_ohe.sav', 'rb'))
 scaler = pickle.load(open('model/_scaler.sav', 'rb'))
 model = pickle.load(open('model/_tree_model.sav', 'rb'))
 
-from model.classify import process_transaction, classify_transaction
+from model.classify import process_transaction, classify_transaction, store_data
 
 @app.get("/form", response_class=HTMLResponse)
 def index(request: Request):
@@ -80,6 +80,9 @@ async def result(request: Request, form_data: WebForm = Depends(WebForm.as_form)
     trns_dict = process_transaction(trns_dict)
     print('classify start')
     trns_dict = classify_transaction(trns_dict, ohe, scaler, model)
+    print('Post request data_api')
+    trns_dict = store_data(trns_dict, url= "http://localhost:8002/store_data")
+
     print('trns_dict: ', trns_dict)
     print("------------ END POST ANALYSE -------------------")
     print("------------ DISPLAY FRAUD OR NOT ---------------")

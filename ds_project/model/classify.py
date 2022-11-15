@@ -4,6 +4,9 @@ from .feature_engineering import cnt_purchase, sec_since_signup, sec_since_last_
 from .training import apply_ohe, apply_scaler, categorical_cols, numerical_cols
 
 import pandas as pd
+import requests
+from requests.structures import CaseInsensitiveDict
+from datetime import datetime
 
 
 def process_transaction(trns_dict: dict) -> dict:
@@ -84,5 +87,39 @@ def classify_transaction(trns_dict: dict, ohe, scaler, model) -> dict:
             trns_dict['result']['is_classified_fraud'] = True
         else:
             trns_dict['result']['is_classified_fraud'] = False
+
+    return trns_dict
+
+
+def store_data(trns_dict: dict, url):
+    """
+    Sends post request to data_api
+    :param trns_dict: transaction dictionary with raw and derived values
+    :return: data_api response status code
+    """
+
+    headers = CaseInsensitiveDict()
+    headers["accept"] = "application/json"
+    headers["Content-Type"] = "application/json"
+
+    data = f"""
+        {{
+        "signup_time": {'"'}{trns_dict.get("raw").get("signup_time")}{'"'}, 
+        "purchase_time": {'"'}{trns_dict.get("raw").get("purchase_time")}{'"'}, 
+        "purchase_value": {trns_dict.get("raw").get("purchase_value")}, 
+        "device_id": {'"'}{trns_dict.get("raw").get("device_id")}{'"'}, 
+        "source": {'"'}{trns_dict.get("raw").get("source")}{'"'}, 
+        "browser": {'"'}{trns_dict.get("raw").get("browser")}{'"'}, 
+        "sex": {'"'}{trns_dict.get("raw").get("sex")}{'"'}, 
+        "age": {trns_dict.get("raw").get("age")}, 
+        "ip_address": {'"'}{trns_dict.get("raw").get("ip_address")}{'"'}, 
+        "is_classified_fraud": {'"'}{trns_dict.get("result").get("is_classified_fraud")}{'"'}
+        }}
+        """
+
+    resp = requests.post(url, headers=headers, data=data)
+    print("data_api response status code: ", resp.status_code)
+
+    trns_dict['data_api_response_code'] = resp.status_code
 
     return trns_dict
