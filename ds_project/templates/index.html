@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Donation</title>
-		<link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
-		<script src="{{ url_for('static', path='/jquery-3.5.0.min.js') }}"></script>
+		<link rel="stylesheet" href='/static/styles.css' />
+		<script src="/static/jquery-3.5.0.min.js"></script>
 		 <script>
 		$(document).ready(function(){
 		$("div.hidden").hide();
@@ -29,17 +30,14 @@
 	   <h1><u>Support the future of student</u></h1>
 	   <p><b>My Donation</b> </p><br>
 	   
-	   <form method="POST" enctype="multipart/form-data">
-			{% for item in data %}
-			<!--p>Your name ?</p>	
-			<div class="imput">
-				<input class="" type="text" maxlength="10" name="yourname" value={{item.yourname}}/>
-			</div-->
+       <form action="/" method = "POST">
 			
+            Your Name:<br>
+            <br><input class="" type="text" maxlength="25" id="yourname" name="yourname" size="28" value="{{form_data.yourname}}"/><br><br>
 			Age:&nbsp&nbsp
-			<input class="" type="text" maxlength="2" id="age" name="age" size="1" value="{{item.age}}"/>
+			<input class="" type="text" maxlength="2" id="age" name="age" size="2" value="{{form_data.age}}"/>
 			&nbsp &nbsp &nbsp &nbsp &nbsp Donate:&nbsp&nbsp
-			<input class="" type="text" maxlength="5" id="purchase_value" name="purchase_value" size="1" value="{{item.purchase_value }}"/>&nbsp€
+			<input class="" type="text" maxlength="5" id="purchase_value" name="purchase_value" size="1" value="{{form_data.purchase_value}}"/>&nbsp€
 			
 			
 			<p>Your sex ?</p>		
@@ -87,10 +85,10 @@
 			
 			
 			<div class="hidden">
-				device_id: <input class="hiddenA" id="device_id" name="device_id" type="" size="13" value="{{item.device_id}}">
-				<br> ip_address: <input class="hiddenA" id="ip_address" name="ip_address" type="" size="10" value="{{item.ip_address}}">
-				<br> signup_time: <input class="hiddenA" id="signup_time" name="signup_time" type="" size="15" value="{{item.signup_time}}">
-				<br> purchase_time: <input class="hiddenA" id="purchase_time" name="purchase_time" type="" size="7" value="{{item.purchase_time}}">
+				device_id: <input class="hiddenA" id="device_id" name="device_id" type="" size="13" value="{{form_data.device_id}}">
+				<br> ip_address: <input class="hiddenA" id="ip_address" name="ip_address" type="" size="10" value="{{form_data.ip_address}}">
+				<br> signup_time: <input class="hiddenA" id="signup_time" name="signup_time" type="" size="15" value="{{form_data.signup_time}}">
+				<br> purchase_time: <input class="hiddenA" id="purchase_time" name="purchase_time" type="" size="7" value="{{form_data.purchase_time}}">
 				<button class="button_view" id="hide">Hide</button>
 			</div>
 			
@@ -101,7 +99,7 @@
 				</div>
 			</div>
 				
-				{% endfor %}
+				
 		</form>
 			<div class="result">
 			

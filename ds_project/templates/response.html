@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html>
 	<head>
 		<meta charset="UTF-8">
 		<title>Donation</title>
-		<link href="{{ url_for('static', path='/styles.css') }}" rel="stylesheet">
-		<script src="{{ url_for('static', path='/jquery-3.5.0.min.js') }}"></script>
+		<link rel="stylesheet" href='/static/styles.css' />
+		<script src="/static/jquery-3.5.0.min.js"></script>
 		 <script>
 		$(document).ready(function(){
 		$("div.hidden").hide();
@@ -16,23 +17,28 @@
 			});
 		});
 		</script>
+		
+	
 	</head>
 <html>
 	<body>
+		
+		
 	    <div class="wrapper">
-            {% for item in data %}
+           
 	        <header> </header>
 	        <nav>
                 
 	        </nav>
 	        <section>
                 <div class="message">
-                <img src="{{ url_for('static', path='') }}{{item.icon}}" width=6% height=6% >
-                {{item.message}}
+                <img src="/static/{{response['icon']}}" width=6% height=6% >
+                {{response['status']}}
+				
                 </div>
                 
+				
                
-                {% endfor %}
 
 	        </section>
         </div>
