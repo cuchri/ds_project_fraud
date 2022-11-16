@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html class="writer-html4" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ds_project.html package &mdash; DS_Project Fraud 0.1 documentation</title><link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  <script id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="ds_project.model package" href="ds_project.model.html" />
+    <link rel="prev" title="Welcome to DS_Project Fraud’s documentation!" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> DS_Project Fraud
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#"> Html</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#tree">Tree</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#python">Python</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app">App</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#variables">Variables</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ds_project.model.html"> Model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ds_project.data.html"> Data</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DS_Project Fraud</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li>ds_project.html package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/ds_project.html.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <div class="section" id="ds-project-html-package">
+<h1>ds_project.html package<a class="headerlink" href="#ds-project-html-package" title="Permalink to this headline">¶</a></h1>
+<p>Display part via http.</p>
+<div class="toctree-wrapper compound">
+</div>
+<div class="section" id="tree">
+<h2>Tree<a class="headerlink" href="#tree" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>html</dt>
+<dd><ul class="first last">
+<li><dl class="first docutils">
+<dt>static</dt>
+<dd><ul class="first last">
+<li>check.png</li>
+<li>info.png</li>
+<li>jquery-3.5.0.min.js</li>
+<li>style.css</li>
+<li>support.png</li>
+<li>uncheck.png</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>templates</dt>
+<dd><ul class="first last">
+<li>form.html</li>
+<li>response.html</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<ul class="simple">
+<li>schemas.py</li>
+<li>attack.py</li>
+</ul>
+</div></blockquote>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Reminder:</th><td class="field-body">Entry point for Fraud Dectection is main.py (root folder). It will display form.html, manage submit, modules and response.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="python">
+<h2>Python<a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>schemas.py</dt>
+<dd><dl class="first last docutils">
+<dt><strong>Include Class WebForm</strong></dt>
+<dd><ul class="first last">
+<li>signup_time: str</li>
+<li>purchase_value: int</li>
+<li>purchase_time: str</li>
+<li>device_id: str</li>
+<li>source: str</li>
+<li>browser: str</li>
+<li>sex: str</li>
+<li>age: int</li>
+<li>ip_address: str “</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>attack.py</dt>
+<dd><dl class="first last docutils">
+<dt><strong>Injection loop (4X) on FastApi url.</strong></dt>
+<dd><ul class="first last">
+<li>urldata: Server + port /form</li>
+<li><dl class="first docutils">
+<dt>data: <em>(Data manually choice)</em></dt>
+<dd><ul class="first last">
+<li>‘signup_time’:’’,</li>
+<li>‘purchase_value’:’’,</li>
+<li>‘purchase_time’:’’,</li>
+<li>‘device_id’:’’,</li>
+<li>‘source’:’’,</li>
+<li>‘browser’:’’,</li>
+<li>‘sex’:’’,</li>
+<li>‘age’:’5’,</li>
+<li>‘ip_address’:’’</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="templates">
+<h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><dl class="docutils">
+<dt><strong>form.html</strong></dt>
+<dd>Template base on Jinja2Templates. Use for Get action.</dd>
+<dt><strong>response.html</strong></dt>
+<dd>Template base on Jinja2Templates. Use for Post action.</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="app">
+<h2>App<a class="headerlink" href="#app" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>&#64;app.get(“/form”, response_class=HTMLResponse)</dt>
+<dd><ul class="first last">
+<li>Initialisation variables for form.html</li>
+<li>Render template form.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>&#64;app.post(‘/form’, response_class=HTMLResponse)</dt>
+<dd><ul class="first last">
+<li>Reception of submit data from form.html</li>
+<li>Call all process modules in MODEL folder</li>
+<li>Render template response. (Fraud or not)</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="variables">
+<h2>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li><dl class="first docutils">
+<dt>trns_dict =</dt>
+<dd><dl class="first last docutils">
+<dt>-‘raw’:</dt>
+<dd><ul class="first last">
+<li>‘signup_time’:datetime.strptime(form_data.signup_time,’%d/%m/%Y %H:%M:%S’),</li>
+<li>‘purchase_time’:datetime.strptime(form_data.purchase_time,’%d/%m/%Y %H:%M:%S’),</li>
+<li>‘purchase_value’:form_data.purchase_value,</li>
+<li>‘device_id’:form_data.device_id,</li>
+<li>‘source’:form_data.source,</li>
+<li>‘browser’:form_data.browser,</li>
+<li>‘sex’:form_data.sex,</li>
+<li>‘age’:form_data.age,</li>
+<li>‘ip_address’:form_data.ip_address</li>
+</ul>
+</dd>
+</dl>
+</dd>
+</dl>
+</li>
+<li>purchase_date = Date Now.</li>
+<li>data = Request submit datas.</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Welcome to DS_Project Fraud’s documentation!" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ds_project.model.html" class="btn btn-neutral float-right" title="ds_project.model package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Christoph Puffitsch, Philippe Lerch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

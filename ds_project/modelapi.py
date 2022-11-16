@@ -11,7 +11,7 @@ import requests
 from datetime import datetime, timedelta
 import pickle
 from pathlib import Path
-from model.classify import process_transaction, classify_transaction
+from model.classify import process_transaction, classify_transaction, store_data
 
 
 BASE_PATH = Path(__file__).resolve().parent
@@ -58,6 +58,9 @@ async def result(info: Request):
     trns_dict = process_transaction(trns_dict)
     print('classify start')
     trns_dict = classify_transaction(trns_dict, ohe, scaler, model)
+    print('Post request data_api')
+    trns_dict = store_data(trns_dict, url= "http://localhost:8002/store_data")
+
     print('trns_dict: ', trns_dict)
     print("------------ END POST ANALYSE -------------------")
      

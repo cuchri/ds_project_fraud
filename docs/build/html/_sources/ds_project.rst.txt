@@ -1,0 +1,31 @@
+ds\_project package
+===================
+
+Subpackages
+-----------
+
+.. toctree::
+
+    ds_project.data
+    ds_project.html
+    ds_project.model
+
+Submodules
+----------
+
+ds\_project.main module
+-----------------------
+
+.. automodule:: ds_project.main
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+
+Module contents
+---------------
+
+.. automodule:: ds_project
+    :members:
+    :undoc-members:
+    :show-inheritance:

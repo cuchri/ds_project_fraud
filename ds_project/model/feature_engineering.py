@@ -13,7 +13,7 @@ def cnt_purchase(device_id: str, is_existing_cust: bool, customer_hist: pd.DataF
     :return: cnt of puchases by customer
     """
     if is_existing_cust:
-        return customer_hist[['device_id'] == device_id]['cnt_purchase'] + 1
+        return customer_hist[customer_hist['device_id'] == 'ABCDEFGH']['cnt_purchase'][0] + 1
     else:
         return 1
 
@@ -28,7 +28,7 @@ def sec_since_signup(dt_signup: datetime, dt_purchase: datetime) -> int:
     :return: time elapsed in seconds
     """
 
-    if dt_purchase == dt_signup:
+    if dt_purchase <= dt_signup:
         return 0
     else:
         return int((dt_purchase - dt_signup).total_seconds())
@@ -49,7 +49,7 @@ def sec_since_last_purchase(device_id: str, dt_purchase: datetime, is_existing_c
     if not is_existing_cust:
         return 0
     else:
-        dt_last_purchase = customer_hist[['device_id'] == device_id]['dt_last_purchase']
+        dt_last_purchase = customer_hist[customer_hist['device_id'] == device_id]['dt_last_purchase'][0]
         return int((dt_purchase - dt_last_purchase).total_seconds())
 
 

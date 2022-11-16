@@ -1,0 +1,10 @@
+ds\_project.html.templates package
+==================================
+
+Module contents
+---------------
+
+.. automodule:: ds_project.html.templates
+    :members:
+    :undoc-members:
+    :show-inheritance:
