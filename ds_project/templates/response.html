@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>Donation</title>
+		<link rel="stylesheet" href='/static/styles.css' />
+		<script src="/static/jquery-3.5.0.min.js"></script>
+		 <script>
+		$(document).ready(function(){
+		$("div.hidden").hide();
+			$("#hide").click(function(){
+				$("div.hidden").hide();
+			});
+			$("#show").click(function(){
+				$("div.hidden").show();
+			});
+		});
+		</script>
+		
+	
+	</head>
+<html>
+	<body>
+		
+		
+	    <div class="wrapper">
+           
+	        <header> </header>
+	        <nav>
+                
+	        </nav>
+	        <section>
+                <div class="message">
+                <img src="/static/{{response['icon']}}" width=6% height=6% >
+                {{response['status']}}
+				
+                </div>
+                
+				
+               
+
+	        </section>
+        </div>
+	</body>
+</html>
+
