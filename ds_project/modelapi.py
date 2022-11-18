@@ -8,6 +8,8 @@ from fastapi.staticfiles import StaticFiles
 import uvicorn
 import requests
 
+from config import *
+
 from datetime import datetime, timedelta
 import pickle
 from pathlib import Path
@@ -59,7 +61,10 @@ async def result(info: Request):
     print('classify start')
     trns_dict = classify_transaction(trns_dict, ohe, scaler, model)
     print('Post request data_api')
-    trns_dict = store_data(trns_dict, url= "http://localhost:8002/store_data")
+    #trns_dict = store_data(trns_dict, url= "http://localhost:8002/store_data")
+    trns_dict = store_data(trns_dict, url= store_data_url)
+
+
 
     print('trns_dict: ', trns_dict)
     print("------------ END POST ANALYSE -------------------")
@@ -76,6 +81,6 @@ async def result(info: Request):
  
     
 if __name__ == "__main__":
-    config = uvicorn.Config("modelapi:app", port=8001, host='0.0.0.0', log_level="debug")
+    config = uvicorn.Config("modelapi:app", port=modelapi_port, host=modelapi_host, log_level=log_level)
     server = uvicorn.Server(config)
     server.run()

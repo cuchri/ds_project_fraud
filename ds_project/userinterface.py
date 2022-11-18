@@ -2,6 +2,9 @@ from flask import Flask,render_template,request
 from datetime import datetime, timedelta
 import requests
 import json
+
+from config import *
+
 app = Flask(__name__,template_folder='templates', static_folder='static')
 
 @app.route("/", methods=['GET', 'POST'])
@@ -22,7 +25,8 @@ def INDEX():
         }
         print('------userinterface ----------')
         print(data)
-        res = requests.post('http://0.0.0.0:8000/', data=json.dumps(data), headers={'Content-Type': 'application/json'})
+        res = requests.post(userapi_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
+        #res = requests.post('http://0.0.0.0:8000/', data=json.dumps(data), headers={'Content-Type': 'application/json'})
     
         print(res.text)
         res_response=res.json()
@@ -53,4 +57,5 @@ def INDEX():
 
 
 if __name__=='__main__':
-    app.run(debug=True, port=80,host='0.0.0.0')
+    #app.run(debug=True, port=80,host='0.0.0.0')
+    app.run(debug=debug_mode, port=userinterface_port,host=userinterface_host)
