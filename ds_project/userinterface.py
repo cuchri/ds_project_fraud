@@ -12,12 +12,12 @@ def INDEX():
         data ={
         'signup_time':request.form['signup_time'],
         'purchase_time':request.form['purchase_time'],
-        'purchase_value':request.form['purchase_value'],
+        'purchase_value':int(request.form['purchase_value']),
         'device_id':request.form['device_id'],
         'source':request.form['source'],
         'browser':request.form['browser'],
         'sex':request.form['sex'],
-        'age':request.form['age'],
+        'age':int(request.form['age']),
         'ip_address':request.form['ip_address']
         }
         print('------userinterface ----------')

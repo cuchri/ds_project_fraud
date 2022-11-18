@@ -1,7 +1,10 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from datetime import datetime
 import csv
+
+import uvicorn
+
 
 
 app = FastAPI(
@@ -63,3 +66,8 @@ async def write_csv(data: Data):
         csv_writer = csv.DictWriter(trns_data_csv_out, fieldnames=fieldnames)
         csv_writer.writerow(d)
     return d
+
+if __name__ == "__main__":
+    config = uvicorn.Config("dataapi:app", port=8002, host='0.0.0.0', log_level="debug")
+    server = uvicorn.Server(config)
+    server.run()
