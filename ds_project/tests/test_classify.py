@@ -9,9 +9,9 @@ cust_hist_path = 'ds_project/tests/test_customer_hist.csv'
 
 
 # load preprocessing and model
-ohe = pickle.load(open('model/_ohe.sav', 'rb'))
-scaler = pickle.load(open('model/_scaler.sav', 'rb'))
-model = pickle.load(open('model/_tree_model.sav', 'rb'))
+ohe = pickle.load(open('ds_project/model/_ohe.sav', 'rb'))
+scaler = pickle.load(open('ds_project/model/_scaler.sav', 'rb'))
+model = pickle.load(open('ds_project/model/_tree_model.sav', 'rb'))
 
 
 #process_transaction
