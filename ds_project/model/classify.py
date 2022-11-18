@@ -41,6 +41,8 @@ def process_transaction(trns_dict: dict, cust_hist_path='data/customer_hist.csv'
                                                                                       'purchase_time'),
                                                                                   trns_dict.get('is_existing_customer'),
                                                                                   customer_hist)
+    else:
+        raise Exception("422: Invalid input")
     return trns_dict
 
 
