@@ -5,7 +5,7 @@ import uvicorn
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
 
-from schemas import WebForm
+#from schemas import WebForm
 
 app = FastAPI()
 
