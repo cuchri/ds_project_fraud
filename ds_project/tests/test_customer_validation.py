@@ -14,6 +14,7 @@ def df_customer_hist():
 
 def test_get_customer_hist():
     assert isinstance(get_customer_hist('ds_project/tests/test_customer_hist.csv'), pd.DataFrame) == True
+    #assert isinstance(get_customer_hist('tests/test_customer_hist.csv'), pd.DataFrame) == True
 
 
 def test_is_existing_customer(df_customer_hist):
