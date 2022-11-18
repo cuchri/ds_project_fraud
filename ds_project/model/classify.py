@@ -15,6 +15,7 @@ def process_transaction(trns_dict: dict, cust_hist_path='data/customer_hist.csv'
 
     :param trns_dict: raw transaction dictionary
     :return trns_dict: enhanced transaction dictionary
+    :raises 422: Input data could not be validated
     """
 
     customer_hist = get_customer_hist(cust_hist_path)
