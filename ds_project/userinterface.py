@@ -2,13 +2,14 @@ from flask import Flask,render_template,request
 from datetime import datetime, timedelta
 import requests
 import json
-
 from config import *
 
 app = Flask(__name__,template_folder='templates', static_folder='static')
 
 @app.route("/", methods=['GET', 'POST'])
 def INDEX():
+    """Functional POST data from from formular.
+    """
     if request.method == 'POST':
         res_response = ''
         res=''
@@ -23,19 +24,15 @@ def INDEX():
         'age':int(request.form['age']),
         'ip_address':request.form['ip_address']
         }
-        print('------userinterface ----------')
-        print(data)
+        
         res = requests.post(userapi_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
-        #res = requests.post('http://0.0.0.0:8000/', data=json.dumps(data), headers={'Content-Type': 'application/json'})
-    
-        print(res.text)
         res_response=res.json()
-        print(res_response)
-        response = {
-        "status" : "received data from userinterface"
-        }
         return render_template("response.html",response=res_response)
-   
+
+
+    """Generate formular with default parameters
+    """
+
     date_now = datetime.now()
     substract_date = datetime.now() + timedelta(days=-1) 
     current_date = date_now.strftime("%d/%m/%Y %H:%M:%S")

@@ -2,9 +2,7 @@ from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from datetime import datetime
 import csv
-
 import uvicorn
-
 
 
 app = FastAPI(

@@ -1,10 +1,8 @@
 import json
-
 import requests
 import uvicorn
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
-
 from config import *
 
 
@@ -24,20 +22,9 @@ class info(BaseModel):
    
 @app.post("/")
 async def result(info: Request):
-    print('------userapi ----------')
     data = await info.json()
-    
-    print(data)
     res = requests.post(modelapi_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
-    #res = requests.post('http://0.0.0.0:8001/', data=json.dumps(data), headers={'Content-Type': 'application/json'})
-    print(res.text)
     response=res.json()
-    '''
-    print("--------response -------")
-    response = {
-        "status" : "received data from userinterface"
-        }
-    '''
     return response
     
 

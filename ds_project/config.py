@@ -1,5 +1,7 @@
 # Configuration
-
+"""
+userinterface, userapi, modelapi, dataapi, store data csv, log level for fastapi
+"""
 debug_mode = True
 userinterface_host = '0.0.0.0'
 userinterface_port = 80
@@ -17,5 +19,6 @@ dataapi_host = '0.0.0.0'
 dataapi_port = 8002
 dataapi_url = f"http://{dataapi_host}:{dataapi_port}/"
 
-log_level = 'debug'
 store_data_url = f"http://{dataapi_host}:{dataapi_port}/store_data"
+
+log_level = 'debug'
