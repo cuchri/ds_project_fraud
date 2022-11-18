@@ -44,7 +44,9 @@ def prepare_raw_data():
     df_train = df_train.drop('is_fraudulent', axis=1)
 
     # create customer history out of train set
-    df_customer_hist = df_train[['device_id', 'is_fraudulent_customer', 'cnt_purchase', 'purchase_time']].groupby('device_id').tail(1).drop_duplicates().sort_values('device_id')
+    df_train_cp = df_train.copy()
+    df_train_cp.rename(columns={'purchase_time': 'dt_last_purchase'}, inplace=True)
+    df_customer_hist = df_train_cp[['device_id', 'is_fraudulent_customer', 'cnt_purchase', 'dt_last_purchase']].groupby('device_id').tail(1).drop_duplicates().sort_values('device_id')
 
     # based on the analysis of correlation, select the following features
     cat_include = ['is_fraud', 'source', 'browser', 'sex', 'was_fraudulent_customer']
