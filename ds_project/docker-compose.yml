@@ -1,0 +1,41 @@
+version: '3'
+services:
+  userinterface:
+    image: philippelerch68/ifuserinterface:latest
+    ports:
+     - "80:80"
+    networks:
+     - fraud_network
+    command: python3 userinterface.py
+
+  userapi:
+    image: philippelerch68/ifuserapi:latest
+    ports:
+     - "8000:8000"
+    networks:
+     - fraud_network
+    command: python3 userapi.py
+
+  modelapi:
+      image: philippelerch68/ifmodelapi:latest
+      ports:
+        - "8001:8001"
+      networks:
+        - fraud_network
+      command: python3 modelapi.py
+
+  modelapi:
+      image: philippelerch68/ifdataapi:latest
+      ports:
+        - "8002:8002"
+      networks:
+        - fraud_network
+      command: python3 ifdataapi.py
+      volumes:
+            - ./data:/data
+
+
+networks:
+  host:
+    name: fraud_network
+    external: true
