@@ -66,6 +66,6 @@ async def write_csv(data: Data):
     return d
 
 if __name__ == "__main__":
-    config = uvicorn.Config("dataapi:app", port=dataapi_port, host=datapi_host, log_level=log_level)
+    config = uvicorn.Config("dataapi:app", port=dataapi_port, host=dataapi_host, log_level=log_level)
     server = uvicorn.Server(config)
     server.run()
