@@ -25,6 +25,6 @@ RUN apt-get update  && pip install -r ./ds_project_fraud/requirements.txt && pip
 
 
 EXPOSE 8001/TCP
-EXPOSE 8002/TCP
+#EXPOSE 8002/TCP
 
 WORKDIR /ds_project_fraud

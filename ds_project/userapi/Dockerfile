@@ -20,6 +20,6 @@ ADD requirements.txt ./ds_project_fraud
 RUN apt-get update  && pip install -r ./ds_project_fraud/requirements.txt && pip install python-multipart
 
 EXPOSE 8000/TCP
-EXPOSE 8001/tcp
+#EXPOSE 8001/tcp
 
 WORKDIR /ds_project_fraud
