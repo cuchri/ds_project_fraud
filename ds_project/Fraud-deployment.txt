@@ -58,3 +58,17 @@ Amazon
     Amazon connect :  ssh -i "Fraud2022.pem" ubuntu@ec2-15-237-160-225.eu-west-3.compute.amazonaws.com
     Amazon pem file : Keypair name : Fraud2022  (Get on request)
     Amazon url test . http://15.237.160.225/
+
+
+Curl test
+=========
+
+Only possible on container Userapi
+
+ Fraud
+ curl -X POST -H 'accept: application/json' -d '{ "signup_time": "28/04/2015 21:13:25", "purchase_time": "28/04/2015 21:13:30","purchase_value": 34,"device_id": "AAAXXOZJRZRAO", "source": "SEO","browser": "Chrome","sex": "M", "age": 39, "ip_address": "732758368.8" }' http://localhost:8000/
+ 
+ not fraud
+ curl -X POST -H 'accept: application/json' -d '{ "signup_time": "28/04/2015 21:13:25", "purchase_time": "28/04/2015 21:13:30","purchase_value": 34,"device_id": "123AXXOZJRZRAO", "source": "SEO","browser": "Chrome","sex": "M", "age": 39, "ip_address": "732758368.8" }' http://localhost:8000/
+ 
+ 
