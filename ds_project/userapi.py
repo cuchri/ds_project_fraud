@@ -1,11 +1,10 @@
 import json
-
 import requests
 import uvicorn
 from fastapi import FastAPI, Request
 from pydantic import BaseModel
+from config import *
 
-from schemas import WebForm
 
 app = FastAPI()
 
@@ -23,24 +22,14 @@ class info(BaseModel):
    
 @app.post("/")
 async def result(info: Request):
-    print('------userapi ----------')
     data = await info.json()
-    
-    print(data)
-    res = requests.post('http://0.0.0.0:8001/', data=json.dumps(data), headers={'Content-Type': 'application/json'})
-    print(res.text)
+    res = requests.post(modelapi_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
     response=res.json()
-    '''
-    print("--------response -------")
-    response = {
-        "status" : "received data from userinterface"
-        }
-    '''
     return response
     
 
 if __name__ == "__main__":
-    config = uvicorn.Config("userapi:app", port=8000, host='0.0.0.0', log_level="debug")
+    config = uvicorn.Config("userapi:app", port=userapi_port, host=userapi_host, log_level=log_level)
     server = uvicorn.Server(config)
     server.run()
     
