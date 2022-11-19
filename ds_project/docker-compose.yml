@@ -1,36 +1,61 @@
-version: "3.9"
+version: '3.9'
 services:
   userinterface:
     image: philippelerch68/ifuserinterface:latest
+    container_name: userinterface
+    networks:
+      fraud_network_ip:
+        ipv4_address: '172.30.0.10'
     ports:
      - "80:80"
     expose:
      - 80
+     - 8000
     command: python3 userinterface.py
 
   userapi:
     image: philippelerch68/ifuserapi:latest
+    container_name: userapi
+    networks:
+      fraud_network_ip:
+        ipv4_address: '172.30.0.11'
     ports:
      - "8000:8000"
     expose:
      - 8000
+     - 8001
+     - 80
     command: python3 userapi.py
 
   modelapi:
       image: philippelerch68/ifmodelapi:latest
+      container_name: modelapi
+      networks:
+        fraud_network_ip:
+          ipv4_address: '172.30.0.12'
       ports:
         - "8001:8001"
       expose:
+      - 8002
       - 8001
       command: python3 modelapi.py
 
   dataapi:
       image: philippelerch68/ifdataapi:latest
+      container_name: dataapi
+      networks:
+        fraud_network_ip:
+          ipv4_address: '172.30.0.13'
       ports:
         - "8002:8002"
       expose:
         - 8002
+        - 8001
       command: python3 dataapi.py
       volumes:
             - ./data:/data
+  
+networks:
+  fraud_network_ip:
+    external: true
 
