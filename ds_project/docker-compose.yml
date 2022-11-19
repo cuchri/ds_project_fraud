@@ -1,0 +1,36 @@
+version: "3.9"
+services:
+  userinterface:
+    image: philippelerch68/ifuserinterface:latest
+    ports:
+     - "80:80"
+    expose:
+     - 80
+    command: python3 userinterface.py
+
+  userapi:
+    image: philippelerch68/ifuserapi:latest
+    ports:
+     - "8000:8000"
+    expose:
+     - 8000
+    command: python3 userapi.py
+
+  modelapi:
+      image: philippelerch68/ifmodelapi:latest
+      ports:
+        - "8001:8001"
+      expose:
+      - 8001
+      command: python3 modelapi.py
+
+  dataapi:
+      image: philippelerch68/ifdataapi:latest
+      ports:
+        - "8002:8002"
+      expose:
+        - 8002
+      command: python3 dataapi.py
+      volumes:
+            - ./data:/data
+

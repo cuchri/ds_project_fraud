@@ -1,0 +1,30 @@
+Userinterface
+
+docker build -t philippelerch68/ifuserinterface:latest . 
+docker push philippelerch68/ifuserinterface:latest
+connect on aws ssh -i "Fraud2022.pem" [ec2-user@ec2-35-180-103-25.eu-west-3.compute.amazonaws.com](mailto:ec2-user@ec2-35-180-103-25.eu-west-3.compute.amazonaws.com)
+sudo docker run -it -p 80:80 --name fuserinterface philippelerch68/ifuserinterface:latest bash
+in container → root@6dde44f89918:/ds_project_fraud# python3 [userinterface.py](http://userinterface.py/)
+
+
+Userapi
+docker build -t philippelerch68/ifuserapi:latest . 
+docker push philippelerch68/ifuserapi:latest
+ssh -i "Fraud2022.pem" ec2-user@ec2-52-47-83-145.eu-west-3.compute.amazonaws.com
+sudo docker run -it -p 8000:8000 --name fuserapi philippelerch68/ifuserapi:latest bash 
+in container  python3 userapi.py
+
+Modelapi
+sudo docker build -t philippelerch68/ifmodelapi:latest .
+docker push philippelerch68/ifmodelapi:latest
+sudo docker run -it -p 8001:8001 --name fmodelapi philippelerch68/ifmodelapi:latest bash
+in container  python3 modelapi.py
+
+Dataapi
+sudo docker build -t philippelerch68/ifdataapi:latest . 
+docker push philippelerch68/ifdataapi:latest
+sudo docker run -it -p 8002:8002 --name fdataapi philippelerch68/ifdataapi:latest bash
+in container  python3 dataapi.py
+
+
+docker network create --subnet 172.30.0.0/16 --gateway 172.30.0.1 fraud_network_ip
