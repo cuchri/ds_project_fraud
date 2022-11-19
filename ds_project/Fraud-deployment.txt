@@ -27,4 +27,8 @@ sudo docker run -it -p 8002:8002 --name fdataapi philippelerch68/ifdataapi:lates
 in container  python3 dataapi.py
 
 
+Docker compose
+
 docker network create --subnet 172.30.0.0/16 --gateway 172.30.0.1 fraud_network_ip
+docker network inspect fraud_network_ip
+docker-compose up -d
