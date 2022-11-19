@@ -50,7 +50,8 @@ async def write_csv(data: Data):
     d.update({'is_classified_fraud': data.is_classified_fraud})
 
     # write out to questions.csv
-    with open('./data/trns_data.csv', 'a', newline='') as trns_data_csv_out:
+    #with open('./data/trns_data.csv', 'a', newline='') as trns_data_csv_out:
+    with open('./trns_data.csv', 'a', newline='') as trns_data_csv_out:
         fieldnames = ['signup_time',
                       'purchase_time',
                       'purchase_value',
