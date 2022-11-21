@@ -28,9 +28,9 @@ Additionally raw transaction data as well as the classification result is sent t
 To deploy this project run
 
 ```bash
-  npm run deploy
-
-  
+  docker network create --subnet 172.30.0.0/16 --gateway 172.30.0.1 fraud_network_ip
+    
+  ds_project_fraud/docker-compose up -d
 ```
 
 
