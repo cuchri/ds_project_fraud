@@ -3,7 +3,7 @@ import requests
 from requests.structures import CaseInsensitiveDict
 from datetime import datetime
 
-path = 'data/sample_requests.csv'
+path = 'tests/sample_requests.csv'
 df_transactions = pd.read_csv(path,
                               dtype={'user_id': object,
                                      'device_id': object,
