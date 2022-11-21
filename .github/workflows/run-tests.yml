@@ -22,6 +22,7 @@ jobs:
           python3 -m pip install --upgrade scikit-learn
       - name: start containers
         run: |
+          cd /ds_project
           docker-compose up -d
       - name: Run tests on pytest
         run: |
