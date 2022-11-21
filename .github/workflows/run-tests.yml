@@ -20,6 +20,11 @@ jobs:
           python3 -m pip install --upgrade pandas
           python3 -m pip install --upgrade requests
           python3 -m pip install --upgrade scikit-learn
+      - name: start containers
+        run: |
+          cd ./ds_project
+          docker network create --subnet 172.30.0.0/16 --gateway 172.30.0.1 fraud_network_ip
+          docker-compose up -d
       - name: Run tests on pytest
         run: |
           python3 -m pytest
