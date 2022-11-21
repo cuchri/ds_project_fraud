@@ -25,12 +25,22 @@ Additionally raw transaction data as well as the classification result is sent t
 
 ## Deployment
 
-To deploy this project run
+To deploy this project, first install docker (+compose) and copy the file `ds_project/docker-compose.yml` on your host machine. Then run the following commands
 
 ```bash
-  npm run deploy
-
+  docker network create --subnet 172.30.0.0/16 --gateway 172.30.0.1 fraud_network_ip
   
+  docker-compose up -d
+```
+
+To test the apis, run the following curl commands from your host machine.
+
+```bash
+  # Fraud detected
+  curl -X POST -H 'accept: application/json' -d '{ "signup_time": "28/04/2015 21:13:25", "purchase_time": "28/04/2015 21:13:30","purchase_value": 34,"device_id": "AAAXXOZJRZRAO", "source": "SEO","browser": "Chrome","sex": "M", "age": 39, "ip_address": "732758368.8" }' http://localhost:8000/
+  
+  # No fraud detected
+  curl -X POST -H 'accept: application/json' -d '{ "signup_time": "11/08/2015 13:13:25", "purchase_time": "11/08/2015 13:13:48","purchase_value": 78,"device_id": "QVPSPJUOCKXYZ", "source": "SEO","browser": "Chrome","sex": "F", "age": 25, "ip_address": "73486318684" }' http://localhost:8000/
 ```
 
 
@@ -40,3 +50,9 @@ To deploy this project run
 Additionally, an `integration test` is defined, that sends post requests to @Userapi and tests for the return status code.
 
 The tests are run on every push/pull_request by [github actions](https://github.com/cuchri/ds_project_fraud/actions).
+
+To run tests without github, the repository must be cloned on your host machine and then run
+
+```bash
+  python3 -m pytest
+```
