@@ -1,8 +1,9 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from pydantic import BaseModel
 from datetime import datetime
 import csv
-
+import uvicorn
+from config import *
 
 app = FastAPI(
     title="Collect data of transaction",
@@ -49,7 +50,8 @@ async def write_csv(data: Data):
     d.update({'is_classified_fraud': data.is_classified_fraud})
 
     # write out to questions.csv
-    with open('./data/trns_data.csv', 'a', newline='') as trns_data_csv_out:
+    #with open('./data/trns_data.csv', 'a', newline='') as trns_data_csv_out:
+    with open('./trns_data.csv', 'a', newline='') as trns_data_csv_out:
         fieldnames = ['signup_time',
                       'purchase_time',
                       'purchase_value',
@@ -63,3 +65,8 @@ async def write_csv(data: Data):
         csv_writer = csv.DictWriter(trns_data_csv_out, fieldnames=fieldnames)
         csv_writer.writerow(d)
     return d
+
+if __name__ == "__main__":
+    config = uvicorn.Config("dataapi:app", port=dataapi_port, host=dataapi_host, log_level=log_level)
+    server = uvicorn.Server(config)
+    server.run()
