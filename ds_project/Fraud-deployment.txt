@@ -1,0 +1,74 @@
+
+Deployment procedure
+=====================
+
+    Image build (Dockerfile) : https://github.com/cuchri/ds_project_fraud
+    Image push (Docker Hub) : https://hub.docker.com/repository/docker/philippelerch68/
+
+    * Concerning Amazon part ec2 invidual container access. 
+
+
+Applications
+============
+
+    Userinterface
+    --------------
+    docker build -t philippelerch68/ifuserinterface:latest . 
+    docker push philippelerch68/ifuserinterface:latest
+
+    *sudo docker run -it -p 80:80 --name fuserinterface philippelerch68/ifuserinterface:latest bash
+    *in container → root@6dde44f89918:/ds_project_fraud# python3 [userinterface.py](http://userinterface.py/)
+
+
+    Userapi
+    -------
+    docker build -t philippelerch68/ifuserapi:latest . 
+    docker push philippelerch68/ifuserapi:latest
+
+    *sudo docker run -it -p 8000:8000 --name fuserapi philippelerch68/ifuserapi:latest bash 
+    *in container  python3 userapi.py
+
+
+    Modelapi
+    --------
+    sudo docker build -t philippelerch68/ifmodelapi:latest .
+    docker push philippelerch68/ifmodelapi:latest
+
+    *sudo docker run -it -p 8001:8001 --name fmodelapi philippelerch68/ifmodelapi:latest bash
+    *in container  python3 modelapi.py
+
+
+    Dataapi
+    -------
+    sudo docker build -t philippelerch68/ifdataapi:latest . 
+    docker push philippelerch68/ifdataapi:latest
+    *sudo docker run -it -p 8002:8002 --name fdataapi philippelerch68/ifdataapi:latest bash
+    *in container  python3 dataapi.py
+
+
+
+Docker compose
+==============
+    docker network create --subnet 172.30.0.0/16 --gateway 172.30.0.1 fraud_network_ip
+    docker network inspect fraud_network_ip
+    docker-compose up -d
+
+Amazon
+======
+    Amazon connect :  ssh -i "Fraud2022.pem" ubuntu@ec2-15-237-160-225.eu-west-3.compute.amazonaws.com
+    Amazon pem file : Keypair name : Fraud2022  (Get on request)
+    Amazon url test . http://15.237.160.225/
+
+
+Curl test
+=========
+
+Only possible on container Userapi
+
+ Fraud
+ curl -X POST -H 'accept: application/json' -d '{ "signup_time": "28/04/2015 21:13:25", "purchase_time": "28/04/2015 21:13:30","purchase_value": 34,"device_id": "AAAXXOZJRZRAO", "source": "SEO","browser": "Chrome","sex": "M", "age": 39, "ip_address": "732758368.8" }' http://localhost:8000/
+ 
+ not fraud
+ curl -X POST -H 'accept: application/json' -d '{ "signup_time": "28/04/2015 21:13:25", "purchase_time": "28/04/2015 21:13:30","purchase_value": 34,"device_id": "123AXXOZJRZRAO", "source": "SEO","browser": "Chrome","sex": "M", "age": 39, "ip_address": "732758368.8" }' http://localhost:8000/
+ 
+ 
