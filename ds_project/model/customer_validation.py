@@ -9,10 +9,10 @@ def get_customer_hist(path) -> pd.DataFrame:
     """
     customer_hist = pd.read_csv(path,
                                 dtype={'device_id': object,
-                                  'is_fraudulent_customer': 'category',
+                                  'is_fraudulent_customer': bool,
                                   'cnt_purchase': int,
                                   },
-                                parse_dates=['purchase_time'],
+                                parse_dates=['dt_last_purchase'],
                                 index_col=0
                            )
     return customer_hist
@@ -43,6 +43,6 @@ def is_fraudulent_customer(device_id: str, is_existing_cust: bool, customer_hist
     """
 
     if is_existing_cust:
-        return customer_hist[customer_hist['device_id'] == device_id]['is_fraudulent_customer'].values[0]
+        return customer_hist[customer_hist['device_id'] == device_id]['is_fraudulent_customer'].iloc[0]
     else:
         return False
