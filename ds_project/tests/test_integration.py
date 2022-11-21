@@ -6,7 +6,7 @@ from datetime import datetime
 
 def test_integration_on_samplerequests():
     # read sample transaction data
-    path = 'ds_project/data/sample_requests.csv'
+    path = 'ds_project/tests/sample_requests.csv'
     df_transactions = pd.read_csv(path,
                                   dtype={'user_id': object,
                                          'device_id': object,
