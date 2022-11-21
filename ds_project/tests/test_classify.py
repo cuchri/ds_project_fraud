@@ -2,16 +2,18 @@ from ..model.classify import process_transaction, classify_transaction
 from datetime import datetime
 import pytest
 import pickle
+import os
+import sys
+from pathlib import Path
 
-
-cust_hist_path = 'ds_project/tests/test_customer_hist.csv'
-#cust_hist_path = 'tests/test_customer_hist.csv'
+BASE_PATH = Path(__file__).resolve().parent
+cust_hist_path = f"{BASE_PATH}/test_customer_hist.csv"
 
 
 # load preprocessing and model
-ohe = pickle.load(open('ds_project/model/_ohe.sav', 'rb'))
-scaler = pickle.load(open('ds_project/model/_scaler.sav', 'rb'))
-model = pickle.load(open('ds_project/model/_tree_model.sav', 'rb'))
+ohe = pickle.load(open(f"{BASE_PATH}/../model/_ohe.sav", 'rb'))
+scaler = pickle.load(open(f"{BASE_PATH}/../model/_scaler.sav", 'rb'))
+model = pickle.load(open(f"{BASE_PATH}/../model/_tree_model.sav", 'rb'))
 
 
 #process_transaction

@@ -1,6 +1,14 @@
 from ..model.customer_validation import get_customer_hist, is_existing_customer, is_fraudulent_customer
 import pandas as pd
 import pytest
+import os
+import sys
+from pathlib import Path
+
+
+BASE_PATH = Path(__file__).resolve().parent
+cust_hist_path = f"{BASE_PATH}/test_customer_hist.csv"
+
 
 @pytest.fixture
 def df_customer_hist():
@@ -13,7 +21,7 @@ def df_customer_hist():
 
 
 def test_get_customer_hist():
-    assert isinstance(get_customer_hist('ds_project/tests/test_customer_hist.csv'), pd.DataFrame) == True
+    assert isinstance(get_customer_hist(cust_hist_path), pd.DataFrame) == True
     #assert isinstance(get_customer_hist('tests/test_customer_hist.csv'), pd.DataFrame) == True
 
 
