@@ -2,11 +2,15 @@ import pandas as pd
 import requests
 from requests.structures import CaseInsensitiveDict
 from datetime import datetime
+import os
+import sys
+from pathlib import Path
 
 
 def test_integration_on_samplerequests():
     # read sample transaction data
-    path = 'ds_project/tests/sample_requests.csv'
+    BASE_PATH = Path(__file__).resolve().parent
+    path = f"{BASE_PATH}/sample_requests.csv"
     df_transactions = pd.read_csv(path,
                                   dtype={'user_id': object,
                                          'device_id': object,
