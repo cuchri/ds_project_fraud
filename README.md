@@ -6,6 +6,7 @@ This project is developed as part of the dataengineering certification @ DataSci
 The project evaluates incoming transactions and classifies them into fraudulent and non-fraudulent transaction.
 As starting point of, the following ressource was used: [fraud_transaction_data](https://assets-datascientest.s3-eu-west-1.amazonaws.com/de/total/fraud.csv)
 
+For a detailed description of used modules and functions see the [documentation](https://cuchri.github.io/ds_project_fraud/)
 
 
 ## Authors
