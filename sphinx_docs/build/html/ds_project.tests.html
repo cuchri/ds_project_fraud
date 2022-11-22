@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tests &mdash; DS_Project Fraud 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="DataAPI" href="ds_project.data.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> DS_Project Fraud
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ds_project.userinterface.html"> UserInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ds_project.userapi.html"> UserAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ds_project.model.html"> ModelAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ds_project.data.html"> DataAPI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"> Tests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#module-ds_project.tests.test_classify">ds_project.tests.test_classify module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_classify.test_classify_transaction_on_good_input_existingcust_isfraud"><code class="docutils literal notranslate"><span class="pre">test_classify_transaction_on_good_input_existingcust_isfraud()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_classify.test_classify_transaction_on_good_input_existingcust_nofraud"><code class="docutils literal notranslate"><span class="pre">test_classify_transaction_on_good_input_existingcust_nofraud()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_classify.test_classify_transaction_on_good_input_newcust"><code class="docutils literal notranslate"><span class="pre">test_classify_transaction_on_good_input_newcust()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_classify.test_process_transaction_on_bad_input"><code class="docutils literal notranslate"><span class="pre">test_process_transaction_on_bad_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_classify.test_process_transaction_on_good_input_existingcust_isfraud"><code class="docutils literal notranslate"><span class="pre">test_process_transaction_on_good_input_existingcust_isfraud()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_classify.test_process_transaction_on_good_input_existingcust_nofraud"><code class="docutils literal notranslate"><span class="pre">test_process_transaction_on_good_input_existingcust_nofraud()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_classify.test_process_transaction_on_good_input_newcust"><code class="docutils literal notranslate"><span class="pre">test_process_transaction_on_good_input_newcust()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_classify.trns_dict_bad"><code class="docutils literal notranslate"><span class="pre">trns_dict_bad()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_classify.trns_dict_good_existingcust_isfraud"><code class="docutils literal notranslate"><span class="pre">trns_dict_good_existingcust_isfraud()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_classify.trns_dict_good_existingcust_nofraud"><code class="docutils literal notranslate"><span class="pre">trns_dict_good_existingcust_nofraud()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_classify.trns_dict_good_newcust"><code class="docutils literal notranslate"><span class="pre">trns_dict_good_newcust()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ds_project.tests.test_customer_validation">ds_project.tests.test_customer_validation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_customer_validation.df_customer_hist"><code class="docutils literal notranslate"><span class="pre">df_customer_hist()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_customer_validation.test_get_customer_hist"><code class="docutils literal notranslate"><span class="pre">test_get_customer_hist()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_customer_validation.test_is_existing_customer"><code class="docutils literal notranslate"><span class="pre">test_is_existing_customer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_customer_validation.test_is_fraudulent_customer"><code class="docutils literal notranslate"><span class="pre">test_is_fraudulent_customer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ds_project.tests.test_feature_engineering">ds_project.tests.test_feature_engineering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_feature_engineering.df_customer_hist"><code class="docutils literal notranslate"><span class="pre">df_customer_hist()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_feature_engineering.test_cnt_purchase"><code class="docutils literal notranslate"><span class="pre">test_cnt_purchase()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_feature_engineering.test_sec_since_last_purchase"><code class="docutils literal notranslate"><span class="pre">test_sec_since_last_purchase()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_feature_engineering.test_sec_since_signup"><code class="docutils literal notranslate"><span class="pre">test_sec_since_signup()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ds_project.tests.test_input_validation">ds_project.tests.test_input_validation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_input_validation.test_is_data_missing_on_bad_input"><code class="docutils literal notranslate"><span class="pre">test_is_data_missing_on_bad_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_input_validation.test_is_data_missing_on_good_input"><code class="docutils literal notranslate"><span class="pre">test_is_data_missing_on_good_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_input_validation.test_is_dates_consistent_on_bad_input"><code class="docutils literal notranslate"><span class="pre">test_is_dates_consistent_on_bad_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_input_validation.test_is_dates_consistent_on_good_input"><code class="docutils literal notranslate"><span class="pre">test_is_dates_consistent_on_good_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_input_validation.test_is_dtypes_consistent_on_bad_input"><code class="docutils literal notranslate"><span class="pre">test_is_dtypes_consistent_on_bad_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_input_validation.test_is_dtypes_consistent_on_good_input"><code class="docutils literal notranslate"><span class="pre">test_is_dtypes_consistent_on_good_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_input_validation.test_is_valid_input_on_bad_input"><code class="docutils literal notranslate"><span class="pre">test_is_valid_input_on_bad_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_input_validation.test_is_valid_input_on_good_input"><code class="docutils literal notranslate"><span class="pre">test_is_valid_input_on_good_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_input_validation.trns_dict_bad"><code class="docutils literal notranslate"><span class="pre">trns_dict_bad()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_input_validation.trns_dict_good"><code class="docutils literal notranslate"><span class="pre">trns_dict_good()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ds_project.tests.test_integration">ds_project.tests.test_integration module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.tests.test_integration.test_integration_on_samplerequests"><code class="docutils literal notranslate"><span class="pre">test_integration_on_samplerequests()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DS_Project Fraud</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">Tests</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/ds_project.tests.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="tests">
+<h1>Tests<a class="headerlink" href="#tests" title="Permalink to this heading"></a></h1>
+<p>All modules of the project are fully tested with unittests and an integration test. The tests are performed with the
+pytest framework and run by github actions.</p>
+<section id="module-ds_project.tests.test_classify">
+<span id="ds-project-tests-test-classify-module"></span><h2>ds_project.tests.test_classify module<a class="headerlink" href="#module-ds_project.tests.test_classify" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_classify.test_classify_transaction_on_good_input_existingcust_isfraud">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_classify.</span></span><span class="sig-name descname"><span class="pre">test_classify_transaction_on_good_input_existingcust_isfraud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_good_existingcust_isfraud</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_classify.test_classify_transaction_on_good_input_existingcust_isfraud" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_classify.test_classify_transaction_on_good_input_existingcust_nofraud">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_classify.</span></span><span class="sig-name descname"><span class="pre">test_classify_transaction_on_good_input_existingcust_nofraud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_good_existingcust_nofraud</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_classify.test_classify_transaction_on_good_input_existingcust_nofraud" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_classify.test_classify_transaction_on_good_input_newcust">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_classify.</span></span><span class="sig-name descname"><span class="pre">test_classify_transaction_on_good_input_newcust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_good_newcust</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_classify.test_classify_transaction_on_good_input_newcust" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_classify.test_process_transaction_on_bad_input">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_classify.</span></span><span class="sig-name descname"><span class="pre">test_process_transaction_on_bad_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_bad</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_classify.test_process_transaction_on_bad_input" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_classify.test_process_transaction_on_good_input_existingcust_isfraud">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_classify.</span></span><span class="sig-name descname"><span class="pre">test_process_transaction_on_good_input_existingcust_isfraud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_good_existingcust_isfraud</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_classify.test_process_transaction_on_good_input_existingcust_isfraud" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_classify.test_process_transaction_on_good_input_existingcust_nofraud">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_classify.</span></span><span class="sig-name descname"><span class="pre">test_process_transaction_on_good_input_existingcust_nofraud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_good_existingcust_nofraud</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_classify.test_process_transaction_on_good_input_existingcust_nofraud" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_classify.test_process_transaction_on_good_input_newcust">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_classify.</span></span><span class="sig-name descname"><span class="pre">test_process_transaction_on_good_input_newcust</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_good_newcust</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_classify.test_process_transaction_on_good_input_newcust" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_classify.trns_dict_bad">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_classify.</span></span><span class="sig-name descname"><span class="pre">trns_dict_bad</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_classify.trns_dict_bad" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a test df of customer history</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_classify.trns_dict_good_existingcust_isfraud">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_classify.</span></span><span class="sig-name descname"><span class="pre">trns_dict_good_existingcust_isfraud</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_classify.trns_dict_good_existingcust_isfraud" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a test df of customer history</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_classify.trns_dict_good_existingcust_nofraud">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_classify.</span></span><span class="sig-name descname"><span class="pre">trns_dict_good_existingcust_nofraud</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_classify.trns_dict_good_existingcust_nofraud" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a test df of customer history</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_classify.trns_dict_good_newcust">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_classify.</span></span><span class="sig-name descname"><span class="pre">trns_dict_good_newcust</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_classify.trns_dict_good_newcust" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a test df of customer history</p>
+</dd></dl>
+
+</section>
+<section id="module-ds_project.tests.test_customer_validation">
+<span id="ds-project-tests-test-customer-validation-module"></span><h2>ds_project.tests.test_customer_validation module<a class="headerlink" href="#module-ds_project.tests.test_customer_validation" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_customer_validation.df_customer_hist">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_customer_validation.</span></span><span class="sig-name descname"><span class="pre">df_customer_hist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_customer_validation.df_customer_hist" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a test df of customer history</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_customer_validation.test_get_customer_hist">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_customer_validation.</span></span><span class="sig-name descname"><span class="pre">test_get_customer_hist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_customer_validation.test_get_customer_hist" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_customer_validation.test_is_existing_customer">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_customer_validation.</span></span><span class="sig-name descname"><span class="pre">test_is_existing_customer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_customer_hist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_customer_validation.test_is_existing_customer" title="Permalink to this definition"></a></dt>
+<dd><p>New customer</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_customer_validation.test_is_fraudulent_customer">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_customer_validation.</span></span><span class="sig-name descname"><span class="pre">test_is_fraudulent_customer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_customer_hist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_customer_validation.test_is_fraudulent_customer" title="Permalink to this definition"></a></dt>
+<dd><p>New customer</p>
+</dd></dl>
+
+</section>
+<section id="module-ds_project.tests.test_feature_engineering">
+<span id="ds-project-tests-test-feature-engineering-module"></span><h2>ds_project.tests.test_feature_engineering module<a class="headerlink" href="#module-ds_project.tests.test_feature_engineering" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_feature_engineering.df_customer_hist">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_feature_engineering.</span></span><span class="sig-name descname"><span class="pre">df_customer_hist</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_feature_engineering.df_customer_hist" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a test df of customer history</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_feature_engineering.test_cnt_purchase">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_feature_engineering.</span></span><span class="sig-name descname"><span class="pre">test_cnt_purchase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_customer_hist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_feature_engineering.test_cnt_purchase" title="Permalink to this definition"></a></dt>
+<dd><p>New customer</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_feature_engineering.test_sec_since_last_purchase">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_feature_engineering.</span></span><span class="sig-name descname"><span class="pre">test_sec_since_last_purchase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">df_customer_hist</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_feature_engineering.test_sec_since_last_purchase" title="Permalink to this definition"></a></dt>
+<dd><p>New customer</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_feature_engineering.test_sec_since_signup">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_feature_engineering.</span></span><span class="sig-name descname"><span class="pre">test_sec_since_signup</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_feature_engineering.test_sec_since_signup" title="Permalink to this definition"></a></dt>
+<dd><p>dt_signup == dt_purchase</p>
+</dd></dl>
+
+</section>
+<section id="module-ds_project.tests.test_input_validation">
+<span id="ds-project-tests-test-input-validation-module"></span><h2>ds_project.tests.test_input_validation module<a class="headerlink" href="#module-ds_project.tests.test_input_validation" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_input_validation.test_is_data_missing_on_bad_input">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_input_validation.</span></span><span class="sig-name descname"><span class="pre">test_is_data_missing_on_bad_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_bad</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_input_validation.test_is_data_missing_on_bad_input" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_input_validation.test_is_data_missing_on_good_input">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_input_validation.</span></span><span class="sig-name descname"><span class="pre">test_is_data_missing_on_good_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_good</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_input_validation.test_is_data_missing_on_good_input" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_input_validation.test_is_dates_consistent_on_bad_input">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_input_validation.</span></span><span class="sig-name descname"><span class="pre">test_is_dates_consistent_on_bad_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_bad</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_input_validation.test_is_dates_consistent_on_bad_input" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_input_validation.test_is_dates_consistent_on_good_input">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_input_validation.</span></span><span class="sig-name descname"><span class="pre">test_is_dates_consistent_on_good_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_good</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_input_validation.test_is_dates_consistent_on_good_input" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_input_validation.test_is_dtypes_consistent_on_bad_input">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_input_validation.</span></span><span class="sig-name descname"><span class="pre">test_is_dtypes_consistent_on_bad_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_bad</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_input_validation.test_is_dtypes_consistent_on_bad_input" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_input_validation.test_is_dtypes_consistent_on_good_input">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_input_validation.</span></span><span class="sig-name descname"><span class="pre">test_is_dtypes_consistent_on_good_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_good</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_input_validation.test_is_dtypes_consistent_on_good_input" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_input_validation.test_is_valid_input_on_bad_input">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_input_validation.</span></span><span class="sig-name descname"><span class="pre">test_is_valid_input_on_bad_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_bad</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_input_validation.test_is_valid_input_on_bad_input" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_input_validation.test_is_valid_input_on_good_input">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_input_validation.</span></span><span class="sig-name descname"><span class="pre">test_is_valid_input_on_good_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict_good</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_input_validation.test_is_valid_input_on_good_input" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_input_validation.trns_dict_bad">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_input_validation.</span></span><span class="sig-name descname"><span class="pre">trns_dict_bad</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_input_validation.trns_dict_bad" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a test df of customer history</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_input_validation.trns_dict_good">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_input_validation.</span></span><span class="sig-name descname"><span class="pre">trns_dict_good</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_input_validation.trns_dict_good" title="Permalink to this definition"></a></dt>
+<dd><p>Returns a test df of customer history</p>
+</dd></dl>
+
+</section>
+<section id="module-ds_project.tests.test_integration">
+<span id="ds-project-tests-test-integration-module"></span><h2>ds_project.tests.test_integration module<a class="headerlink" href="#module-ds_project.tests.test_integration" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.tests.test_integration.test_integration_on_samplerequests">
+<span class="sig-prename descclassname"><span class="pre">ds_project.tests.test_integration.</span></span><span class="sig-name descname"><span class="pre">test_integration_on_samplerequests</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.tests.test_integration.test_integration_on_samplerequests" title="Permalink to this definition"></a></dt>
+<dd></dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ds_project.data.html" class="btn btn-neutral float-left" title="DataAPI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Christoph Puffitsch, Philippe Lerch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
