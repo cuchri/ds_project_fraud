@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
-    <![endif]-->
+  <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
@@ -44,7 +44,8 @@
 <li class="toctree-l1"><a class="reference internal" href="ds_project.userapi.html"> UserAPI</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ds_project.model.html"> ModelAPI</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"> DataAPI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ds-project-data-dataapi-module">ds_project.data.dataapi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app-get-tags-home">&#64;app.get(‘/’, tags=[‘home’])</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app-post-store-data-tags-store-data">&#64;app.post(‘/store_data’, tags=[‘store data’])</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ds_project.tests.html"> Tests</a></li>
@@ -76,10 +77,50 @@
              
   <section id="dataapi">
 <h1>DataAPI<a class="headerlink" href="#dataapi" title="Permalink to this heading"></a></h1>
-<p>The DataAPI receives raw transaction data and the classification result from the ModelAPI. It stores the data to .csv
-file for later use.</p>
-<section id="ds-project-data-dataapi-module">
-<h2>ds_project.data.dataapi module<a class="headerlink" href="#ds-project-data-dataapi-module" title="Permalink to this heading"></a></h2>
+<p>This interface is base on Fastapi application.</p>
+<dl class="simple">
+<dt>Dataapi has 2 parts</dt><dd><ol class="arabic simple">
+<li><p>Receive data from modelapi</p></li>
+<li><p>Store data in csv format</p></li>
+</ol>
+</dd>
+</dl>
+<section id="app-get-tags-home">
+<h2>&#64;app.get(‘/’, tags=[‘home’])<a class="headerlink" href="#app-get-tags-home" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>async def root():</dt><dd><p>“””Functional check of API.
+“””</p>
+</dd>
+<dt><strong>Parameters:</strong></dt><dd><p>No parameters</p>
+</dd>
+<dt><strong>Response</strong></dt><dd><p>greetings</p>
+</dd>
+</dl>
+</div></blockquote>
+</section>
+<section id="app-post-store-data-tags-store-data">
+<h2>&#64;app.post(‘/store_data’, tags=[‘store data’])<a class="headerlink" href="#app-post-store-data-tags-store-data" title="Permalink to this heading"></a></h2>
+<blockquote>
+<div><dl class="simple">
+<dt>async def write_csv(data: Data):</dt><dd><p>“””New transaction data are stored to csv.</p>
+</dd>
+<dt><strong>Parameters:</strong></dt><dd><p>d = {}
+d.update({‘signup_time’: data.signup_time})
+d.update({‘purchase_time’: data.purchase_time})
+d.update({‘purchase_value’: data.purchase_value})
+d.update({‘device_id’: data.device_id})
+d.update({‘source’: data.source})
+d.update({‘browser’: data.browser})
+d.update({‘sex’: data.sex})
+d.update({‘age’: data.age})
+d.update({‘ip_address’: data.ip_address})
+d.update({‘is_classified_fraud’: data.is_classified_fraud})</p>
+</dd>
+<dt><strong>Response</strong></dt><dd><p>True or False</p>
+</dd>
+</dl>
+</div></blockquote>
 </section>
 </section>
 

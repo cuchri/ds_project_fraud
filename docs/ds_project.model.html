@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
-    <![endif]-->
+  <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
@@ -43,30 +43,33 @@
 <li class="toctree-l1"><a class="reference internal" href="ds_project.userinterface.html"> UserInterface</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ds_project.userapi.html"> UserAPI</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"> ModelAPI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ds-project-modelapi-module">ds_project.modelapi module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#module-ds_project.model.classify">ds_project.model.classify module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.classify.classify_transaction"><code class="docutils literal notranslate"><span class="pre">classify_transaction()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.classify.process_transaction"><code class="docutils literal notranslate"><span class="pre">process_transaction()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.classify.store_data"><code class="docutils literal notranslate"><span class="pre">store_data()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app-post">&#64;app.post(“/”)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ds-project-modelapi-module">ds_project.modelapi module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ds_project.model.classify">ds_project.model.classify module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ds_project.model.classify.classify_transaction"><code class="docutils literal notranslate"><span class="pre">classify_transaction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ds_project.model.classify.process_transaction"><code class="docutils literal notranslate"><span class="pre">process_transaction()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ds_project.model.classify.store_data"><code class="docutils literal notranslate"><span class="pre">store_data()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-ds_project.model.customer_validation">ds_project.model.customer_validation module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.customer_validation.get_customer_hist"><code class="docutils literal notranslate"><span class="pre">get_customer_hist()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.customer_validation.is_existing_customer"><code class="docutils literal notranslate"><span class="pre">is_existing_customer()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.customer_validation.is_fraudulent_customer"><code class="docutils literal notranslate"><span class="pre">is_fraudulent_customer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ds_project.model.customer_validation">ds_project.model.customer_validation module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ds_project.model.customer_validation.get_customer_hist"><code class="docutils literal notranslate"><span class="pre">get_customer_hist()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ds_project.model.customer_validation.is_existing_customer"><code class="docutils literal notranslate"><span class="pre">is_existing_customer()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ds_project.model.customer_validation.is_fraudulent_customer"><code class="docutils literal notranslate"><span class="pre">is_fraudulent_customer()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-ds_project.model.feature_engineering">ds_project.model.feature_engineering module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.feature_engineering.cnt_purchase"><code class="docutils literal notranslate"><span class="pre">cnt_purchase()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.feature_engineering.sec_since_last_purchase"><code class="docutils literal notranslate"><span class="pre">sec_since_last_purchase()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.feature_engineering.sec_since_signup"><code class="docutils literal notranslate"><span class="pre">sec_since_signup()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ds_project.model.feature_engineering">ds_project.model.feature_engineering module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ds_project.model.feature_engineering.cnt_purchase"><code class="docutils literal notranslate"><span class="pre">cnt_purchase()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ds_project.model.feature_engineering.sec_since_last_purchase"><code class="docutils literal notranslate"><span class="pre">sec_since_last_purchase()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ds_project.model.feature_engineering.sec_since_signup"><code class="docutils literal notranslate"><span class="pre">sec_since_signup()</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#module-ds_project.model.input_validation">ds_project.model.input_validation module</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.input_validation.is_data_missing"><code class="docutils literal notranslate"><span class="pre">is_data_missing()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.input_validation.is_dates_consistent"><code class="docutils literal notranslate"><span class="pre">is_dates_consistent()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.input_validation.is_dtypes_consistent"><code class="docutils literal notranslate"><span class="pre">is_dtypes_consistent()</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.input_validation.is_valid_input"><code class="docutils literal notranslate"><span class="pre">is_valid_input()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-ds_project.model.input_validation">ds_project.model.input_validation module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#ds_project.model.input_validation.is_data_missing"><code class="docutils literal notranslate"><span class="pre">is_data_missing()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ds_project.model.input_validation.is_dates_consistent"><code class="docutils literal notranslate"><span class="pre">is_dates_consistent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ds_project.model.input_validation.is_dtypes_consistent"><code class="docutils literal notranslate"><span class="pre">is_dtypes_consistent()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ds_project.model.input_validation.is_valid_input"><code class="docutils literal notranslate"><span class="pre">is_valid_input()</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -101,14 +104,55 @@
              
   <section id="modelapi">
 <h1>ModelAPI<a class="headerlink" href="#modelapi" title="Permalink to this heading"></a></h1>
-<p>The ModelAPI receives raw transaction data from the UserAPI and performs input validation, customer validation,
-feature engineering and classification. Afterwards it sends the classification result to the UserAPI.
-Additionally, the raw transaction data and the classification result is sent to the DataAPI.</p>
+<p>This interface is base on Fastapi application.</p>
+<dl class="simple">
+<dt>Userapi has 3 parts</dt><dd><ol class="arabic simple">
+<li><p>Receive data from userapi.</p></li>
+<li><p>Apply machine learning fraud detection algorithms.</p></li>
+<li><p>Send result to dataapi.</p></li>
+<li><p>Send back result to userapi response (fraud -&gt; yes or not ).</p></li>
+</ol>
+</dd>
+</dl>
+<section id="app-post">
+<h2>&#64;app.post(“/”)<a class="headerlink" href="#app-post" title="Permalink to this heading"></a></h2>
+<dl>
+<dt>async def result(info: Request):</dt><dd><p>Functional get data from userapi.py and apply format.</p>
+<dl>
+<dt><strong>Parameters:</strong></dt><dd><dl>
+<dt>trns_dict = {</dt><dd><dl class="simple">
+<dt>‘raw’: {</dt><dd><p>‘signup_time’: datetime.strptime(data[‘signup_time’], ‘%d/%m/%Y %H:%M:%S’),
+‘purchase_time’: datetime.strptime(data[‘purchase_time’], ‘%d/%m/%Y %H:%M:%S’),
+‘purchase_value’: data[‘purchase_value’],
+‘device_id’: data[‘device_id’],
+‘source’: data[‘source’],
+‘browser’: data[‘browser’],
+‘sex’:data[‘sex’],
+‘age’: data[‘age’],
+‘ip_address’: data[‘ip_address’]</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}
+process_transaction(trns_dict)
+classify_transaction(trns_dict, ohe, scaler, model)
+store_data(trns_dict, url= store_data_url)</p>
+</dd>
+<dt><strong>Response</strong></dt><dd><p>Determine which response should be send userapi.py
+Fraud (Y/N)  or another response on server problem connection)
+trns_dict[‘result’][‘is_classified_fraud’]</p>
+<p><strong>Returns:</strong> trns_dict[‘result’][‘is_classified_fraud’]</p>
+</dd>
+</dl>
+</dd>
+</dl>
 <section id="ds-project-modelapi-module">
-<h2>ds_project.modelapi module<a class="headerlink" href="#ds-project-modelapi-module" title="Permalink to this heading"></a></h2>
+<h3>ds_project.modelapi module<a class="headerlink" href="#ds-project-modelapi-module" title="Permalink to this heading"></a></h3>
 </section>
 <section id="module-ds_project.model.classify">
-<span id="ds-project-model-classify-module"></span><h2>ds_project.model.classify module<a class="headerlink" href="#module-ds_project.model.classify" title="Permalink to this heading"></a></h2>
+<span id="ds-project-model-classify-module"></span><h3>ds_project.model.classify module<a class="headerlink" href="#module-ds_project.model.classify" title="Permalink to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py" id="ds_project.model.classify.classify_transaction">
 <span class="sig-prename descclassname"><span class="pre">ds_project.model.classify.</span></span><span class="sig-name descname"><span class="pre">classify_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ohe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#ds_project.model.classify.classify_transaction" title="Permalink to this definition"></a></dt>
@@ -150,7 +194,7 @@ Additionally, the raw transaction data and the classification result is sent to 
 
 </section>
 <section id="module-ds_project.model.customer_validation">
-<span id="ds-project-model-customer-validation-module"></span><h2>ds_project.model.customer_validation module<a class="headerlink" href="#module-ds_project.model.customer_validation" title="Permalink to this heading"></a></h2>
+<span id="ds-project-model-customer-validation-module"></span><h3>ds_project.model.customer_validation module<a class="headerlink" href="#module-ds_project.model.customer_validation" title="Permalink to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py" id="ds_project.model.customer_validation.get_customer_hist">
 <span class="sig-prename descclassname"><span class="pre">ds_project.model.customer_validation.</span></span><span class="sig-name descname"><span class="pre">get_customer_hist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#ds_project.model.customer_validation.get_customer_hist" title="Permalink to this definition"></a></dt>
@@ -202,7 +246,7 @@ Additionally, the raw transaction data and the classification result is sent to 
 
 </section>
 <section id="module-ds_project.model.feature_engineering">
-<span id="ds-project-model-feature-engineering-module"></span><h2>ds_project.model.feature_engineering module<a class="headerlink" href="#module-ds_project.model.feature_engineering" title="Permalink to this heading"></a></h2>
+<span id="ds-project-model-feature-engineering-module"></span><h3>ds_project.model.feature_engineering module<a class="headerlink" href="#module-ds_project.model.feature_engineering" title="Permalink to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py" id="ds_project.model.feature_engineering.cnt_purchase">
 <span class="sig-prename descclassname"><span class="pre">ds_project.model.feature_engineering.</span></span><span class="sig-name descname"><span class="pre">cnt_purchase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_existing_cust</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customer_hist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#ds_project.model.feature_engineering.cnt_purchase" title="Permalink to this definition"></a></dt>
@@ -259,7 +303,7 @@ Additionally, the raw transaction data and the classification result is sent to 
 
 </section>
 <section id="module-ds_project.model.input_validation">
-<span id="ds-project-model-input-validation-module"></span><h2>ds_project.model.input_validation module<a class="headerlink" href="#module-ds_project.model.input_validation" title="Permalink to this heading"></a></h2>
+<span id="ds-project-model-input-validation-module"></span><h3>ds_project.model.input_validation module<a class="headerlink" href="#module-ds_project.model.input_validation" title="Permalink to this heading"></a></h3>
 <dl class="py function">
 <dt class="sig sig-object py" id="ds_project.model.input_validation.is_data_missing">
 <span class="sig-prename descclassname"><span class="pre">ds_project.model.input_validation.</span></span><span class="sig-name descname"><span class="pre">is_data_missing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#ds_project.model.input_validation.is_data_missing" title="Permalink to this definition"></a></dt>
@@ -310,6 +354,7 @@ Additionally, the raw transaction data and the classification result is sent to 
 </dl>
 </dd></dl>
 
+</section>
 </section>
 </section>
 

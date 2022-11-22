@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
-    <![endif]-->
+  <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
@@ -41,7 +41,7 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#"> UserInterface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ds-project-userinterface-userinterface-module">ds_project.userinterface.userinterface module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app-route-methods-get-post">&#64;app.route(“/”, methods=[‘GET’, ‘POST’])</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ds_project.userapi.html"> UserAPI</a></li>
@@ -76,10 +76,55 @@
              
   <section id="userinterface">
 <h1>UserInterface<a class="headerlink" href="#userinterface" title="Permalink to this heading"></a></h1>
-<p>Userinterface is an example of a webpage where a user can donate some money. The resulting transaction will be passed to
-the UserAPI.</p>
-<section id="ds-project-userinterface-userinterface-module">
-<h2>ds_project.userinterface.userinterface module<a class="headerlink" href="#ds-project-userinterface-userinterface-module" title="Permalink to this heading"></a></h2>
+<p>This interface is base on Flask application.</p>
+<dl>
+<dt>Userinterface has 3 parts</dt><dd><ol class="arabic simple">
+<li><dl class="simple">
+<dt>HTML Dispaly</dt><dd><ul class="simple">
+<li><p>Entry form to fill out</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="simple">
+<dt>Forward data</dt><dd><ul class="simple">
+<li><p>Send data from submit form</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+<ol class="arabic simple" start="2">
+<li><dl class="simple">
+<dt>Response</dt><dd><ul class="simple">
+<li><p>Display result of fraud (Yes or Not)</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</dd>
+</dl>
+<section id="app-route-methods-get-post">
+<h2>&#64;app.route(“/”, methods=[‘GET’, ‘POST’])<a class="headerlink" href="#app-route-methods-get-post" title="Permalink to this heading"></a></h2>
+<p>def INDEX():</p>
+<blockquote>
+<div><p>Functional POST data from HTML formular.
+Running with FastAPI.</p>
+<dl class="simple">
+<dt><strong>Parameters</strong>:</dt><dd><p>‘signup_time’:request.form[‘signup_time’],
+‘purchase_time’:request.form[‘purchase_time’],
+‘purchase_value’:int(request.form[‘purchase_value’]),
+‘device_id’:request.form[‘device_id’],
+‘source’:request.form[‘source’],
+‘browser’:request.form[‘browser’],
+‘sex’:request.form[‘sex’],
+‘age’:int(request.form[‘age’]),
+‘ip_address’:request.form[‘ip_address’]</p>
+</dd>
+</dl>
+<p><strong>Returns</strong>: render_template(“response.html”,response=res_response)</p>
+</div></blockquote>
 </section>
 </section>
 

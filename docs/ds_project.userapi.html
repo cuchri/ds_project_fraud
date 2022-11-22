@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
-    <![endif]-->
+  <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
@@ -42,7 +42,7 @@
               <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ds_project.userinterface.html"> UserInterface</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#"> UserAPI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#ds-project-userapi-userapi-module">ds_project.userapi.userapi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app-post">&#64;app.post(“/”)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ds_project.model.html"> ModelAPI</a></li>
@@ -76,10 +76,28 @@
              
   <section id="userapi">
 <h1>UserAPI<a class="headerlink" href="#userapi" title="Permalink to this heading"></a></h1>
-<p>The UserAPI gets the raw transaction data from the UserInterface and passes it to the ModelAPI.
-Later it returns the classification result, received from the ModelAPI to the UserAPI.</p>
-<section id="ds-project-userapi-userapi-module">
-<h2>ds_project.userapi.userapi module<a class="headerlink" href="#ds-project-userapi-userapi-module" title="Permalink to this heading"></a></h2>
+<p>This interface is base on Fastapi application.</p>
+<dl class="simple">
+<dt>Userapi has 3 parts</dt><dd><ol class="arabic simple">
+<li><p>Receive data from userinterface.</p></li>
+<li><p>Send response from modelapi to userinterface.</p></li>
+<li><p>Receive data from modelapi who is transmitted to userinterface.</p></li>
+</ol>
+</dd>
+</dl>
+<section id="app-post">
+<h2>&#64;app.post(“/”)<a class="headerlink" href="#app-post" title="Permalink to this heading"></a></h2>
+<p>async def result(info: Request):</p>
+<blockquote>
+<div><p>Functional POST data from HTML formular.
+Running with FastAPI.</p>
+<dl class="simple">
+<dt><strong>Parameters:</strong></dt><dd><p>data: incoming from userinterface
+res: modelapi_url, data=json.dumps(data), headers=</p>
+</dd>
+</dl>
+<p><strong>Returns:</strong> render_template(“response.html”,response=res_response)</p>
+</div></blockquote>
 </section>
 </section>
 

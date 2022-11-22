@@ -9,7 +9,7 @@
       <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
-    <![endif]-->
+  <![endif]-->
   
         <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
@@ -84,23 +84,20 @@ included modules and a diagram showing the process.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="ds_project.userinterface.html"> UserInterface</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ds_project.userinterface.html#ds-project-userinterface-userinterface-module">ds_project.userinterface.userinterface module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ds_project.userinterface.html#app-route-methods-get-post">&#64;app.route(“/”, methods=[‘GET’, ‘POST’])</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ds_project.userapi.html"> UserAPI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ds_project.userapi.html#ds-project-userapi-userapi-module">ds_project.userapi.userapi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ds_project.userapi.html#app-post">&#64;app.post(“/”)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ds_project.model.html"> ModelAPI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ds_project.model.html#ds-project-modelapi-module">ds_project.modelapi module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ds_project.model.html#module-ds_project.model.classify">ds_project.model.classify module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ds_project.model.html#module-ds_project.model.customer_validation">ds_project.model.customer_validation module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ds_project.model.html#module-ds_project.model.feature_engineering">ds_project.model.feature_engineering module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="ds_project.model.html#module-ds_project.model.input_validation">ds_project.model.input_validation module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ds_project.model.html#app-post">&#64;app.post(“/”)</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ds_project.data.html"> DataAPI</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="ds_project.data.html#ds-project-data-dataapi-module">ds_project.data.dataapi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ds_project.data.html#app-get-tags-home">&#64;app.get(‘/’, tags=[‘home’])</a></li>
+<li class="toctree-l2"><a class="reference internal" href="ds_project.data.html#app-post-store-data-tags-store-data">&#64;app.post(‘/store_data’, tags=[‘store data’])</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="ds_project.tests.html"> Tests</a><ul>
