@@ -1,9 +1,0 @@
-ds_project
-==========
-
-.. toctree::
-   :maxdepth: 4
-
-   ds_project
-   requirements
-   setup

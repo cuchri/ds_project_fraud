@@ -27,14 +27,21 @@ class Data(BaseModel):
 
 @app.get('/', tags=['home'])
 async def root():
-    """Functional check of API.
     """
+        Functional check of API.
+
+        :return: 'greetings': 'API is up and running!!!'
+        """
     return {'greetings': 'API is up and running!!!'}
 
 
 @app.post('/store_data', tags=['store data'])
 async def write_csv(data: Data):
-    """New transaction data are stored to csv.
+    """
+        New transaction data are stored to trns_data.csv.
+
+        :param data: raw transaction dictionary and classification result
+        :return html status code: 200 if success
     """
 
     d = {}
