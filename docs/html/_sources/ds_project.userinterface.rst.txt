@@ -1,0 +1,13 @@
+UserInterface
+=============
+
+Userinterface is an example of a webpage where a user can donate some money. The resulting transaction will be passed to
+the UserAPI.
+
+ds\_project.userinterface.userinterface module
+----------------------------------------------
+
+.. automodule:: ds_project.userinterface.userinterface
+   :members:
+   :undoc-members:
+   :show-inheritance:

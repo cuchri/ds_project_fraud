@@ -1,0 +1,49 @@
+ModelAPI
+========
+
+The ModelAPI receives raw transaction data from the UserAPI and performs input validation, customer validation,
+feature engineering and classification. Afterwards it sends the classification result to the UserAPI.
+Additionally, the raw transaction data and the classification result is sent to the DataAPI.
+
+ds\_project.modelapi module
+---------------------------
+
+.. automodule:: ds_project.modelapi
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ds\_project.model.classify module
+---------------------------------
+
+.. automodule:: ds_project.model.classify
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ds\_project.model.customer\_validation module
+---------------------------------------------
+
+.. automodule:: ds_project.model.customer_validation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ds\_project.model.feature\_engineering module
+---------------------------------------------
+
+.. automodule:: ds_project.model.feature_engineering
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+ds\_project.model.input\_validation module
+------------------------------------------
+
+.. automodule:: ds_project.model.input_validation
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+
+

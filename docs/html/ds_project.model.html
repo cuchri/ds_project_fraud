@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ModelAPI &mdash; DS_Project Fraud 0.1 documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="DataAPI" href="ds_project.data.html" />
+    <link rel="prev" title="UserAPI" href="ds_project.userapi.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+            <a href="index.html" class="icon icon-home"> DS_Project Fraud
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ds_project.userinterface.html"> UserInterface</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ds_project.userapi.html"> UserAPI</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#"> ModelAPI</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ds-project-modelapi-module">ds_project.modelapi module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ds_project.model.classify">ds_project.model.classify module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.classify.classify_transaction"><code class="docutils literal notranslate"><span class="pre">classify_transaction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.classify.process_transaction"><code class="docutils literal notranslate"><span class="pre">process_transaction()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.classify.store_data"><code class="docutils literal notranslate"><span class="pre">store_data()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ds_project.model.customer_validation">ds_project.model.customer_validation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.customer_validation.get_customer_hist"><code class="docutils literal notranslate"><span class="pre">get_customer_hist()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.customer_validation.is_existing_customer"><code class="docutils literal notranslate"><span class="pre">is_existing_customer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.customer_validation.is_fraudulent_customer"><code class="docutils literal notranslate"><span class="pre">is_fraudulent_customer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ds_project.model.feature_engineering">ds_project.model.feature_engineering module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.feature_engineering.cnt_purchase"><code class="docutils literal notranslate"><span class="pre">cnt_purchase()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.feature_engineering.sec_since_last_purchase"><code class="docutils literal notranslate"><span class="pre">sec_since_last_purchase()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.feature_engineering.sec_since_signup"><code class="docutils literal notranslate"><span class="pre">sec_since_signup()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#module-ds_project.model.input_validation">ds_project.model.input_validation module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.input_validation.is_data_missing"><code class="docutils literal notranslate"><span class="pre">is_data_missing()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.input_validation.is_dates_consistent"><code class="docutils literal notranslate"><span class="pre">is_dates_consistent()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.input_validation.is_dtypes_consistent"><code class="docutils literal notranslate"><span class="pre">is_dtypes_consistent()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#ds_project.model.input_validation.is_valid_input"><code class="docutils literal notranslate"><span class="pre">is_valid_input()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ds_project.data.html"> DataAPI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ds_project.tests.html"> Tests</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">DS_Project Fraud</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home"></a></li>
+      <li class="breadcrumb-item active">ModelAPI</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/ds_project.model.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="modelapi">
+<h1>ModelAPI<a class="headerlink" href="#modelapi" title="Permalink to this heading"></a></h1>
+<p>The ModelAPI receives raw transaction data from the UserAPI and performs input validation, customer validation,
+feature engineering and classification. Afterwards it sends the classification result to the UserAPI.
+Additionally, the raw transaction data and the classification result is sent to the DataAPI.</p>
+<section id="ds-project-modelapi-module">
+<h2>ds_project.modelapi module<a class="headerlink" href="#ds-project-modelapi-module" title="Permalink to this heading"></a></h2>
+</section>
+<section id="module-ds_project.model.classify">
+<span id="ds-project-model-classify-module"></span><h2>ds_project.model.classify module<a class="headerlink" href="#module-ds_project.model.classify" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.model.classify.classify_transaction">
+<span class="sig-prename descclassname"><span class="pre">ds_project.model.classify.</span></span><span class="sig-name descname"><span class="pre">classify_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ohe</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">scaler</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#ds_project.model.classify.classify_transaction" title="Permalink to this definition"></a></dt>
+<dd><p>Applies the classification model on the individual transaction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>trns_dict</strong> – raw transaction dictionary</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>trns_dict: enhanced transaction dictionary</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.model.classify.process_transaction">
+<span class="sig-prename descclassname"><span class="pre">ds_project.model.classify.</span></span><span class="sig-name descname"><span class="pre">process_transaction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">cust_hist_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'data/customer_hist.csv'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span></span></span><a class="headerlink" href="#ds_project.model.classify.process_transaction" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates webshop transactions</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>trns_dict</strong> – raw transaction dictionary</p>
+</dd>
+<dt class="field-even">Return trns_dict</dt>
+<dd class="field-even"><p>enhanced transaction dictionary</p>
+</dd>
+<dt class="field-odd">Raises</dt>
+<dd class="field-odd"><p><strong>422</strong> – Input data could not be validated</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.model.classify.store_data">
+<span class="sig-prename descclassname"><span class="pre">ds_project.model.classify.</span></span><span class="sig-name descname"><span class="pre">store_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">trns_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">url</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#ds_project.model.classify.store_data" title="Permalink to this definition"></a></dt>
+<dd><p>Sends post request to data_api
+:param trns_dict: transaction dictionary with raw and derived values
+:return: data_api response status code</p>
+</dd></dl>
+
+</section>
+<section id="module-ds_project.model.customer_validation">
+<span id="ds-project-model-customer-validation-module"></span><h2>ds_project.model.customer_validation module<a class="headerlink" href="#module-ds_project.model.customer_validation" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.model.customer_validation.get_customer_hist">
+<span class="sig-prename descclassname"><span class="pre">ds_project.model.customer_validation.</span></span><span class="sig-name descname"><span class="pre">get_customer_hist</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">DataFrame</span></span></span><a class="headerlink" href="#ds_project.model.customer_validation.get_customer_hist" title="Permalink to this definition"></a></dt>
+<dd><p>import table with customer purchase history</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>path</strong> – path to the csv file</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>df</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.model.customer_validation.is_existing_customer">
+<span class="sig-prename descclassname"><span class="pre">ds_project.model.customer_validation.</span></span><span class="sig-name descname"><span class="pre">is_existing_customer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customer_hist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#ds_project.model.customer_validation.is_existing_customer" title="Permalink to this definition"></a></dt>
+<dd><p>Lookup if device_id is present in customer history data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device_id</strong> – identifyer of an individual customer</p></li>
+<li><p><strong>customer_hist</strong> – DataFrame of individual customer purchase history</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if device_id is in DataFrame, else False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.model.customer_validation.is_fraudulent_customer">
+<span class="sig-prename descclassname"><span class="pre">ds_project.model.customer_validation.</span></span><span class="sig-name descname"><span class="pre">is_fraudulent_customer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_existing_cust</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customer_hist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#ds_project.model.customer_validation.is_fraudulent_customer" title="Permalink to this definition"></a></dt>
+<dd><p>Lookup if a fraudulent transaction is found in customer history</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device_id</strong> – identifier of an individual customer</p></li>
+<li><p><strong>is_existing_cust</strong> – True if customer has purchase history</p></li>
+<li><p><strong>customer_hist</strong> – DataFrame of individual customer purchase history</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if device_id is in DataFrame, else False</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-ds_project.model.feature_engineering">
+<span id="ds-project-model-feature-engineering-module"></span><h2>ds_project.model.feature_engineering module<a class="headerlink" href="#module-ds_project.model.feature_engineering" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.model.feature_engineering.cnt_purchase">
+<span class="sig-prename descclassname"><span class="pre">ds_project.model.feature_engineering.</span></span><span class="sig-name descname"><span class="pre">cnt_purchase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_existing_cust</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customer_hist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#ds_project.model.feature_engineering.cnt_purchase" title="Permalink to this definition"></a></dt>
+<dd><p>adding 1 to the number of historic purchases by a customer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device_id</strong> – identifier of an individual customer</p></li>
+<li><p><strong>is_existing_cust</strong> – True if customer has purchase history</p></li>
+<li><p><strong>customer_hist</strong> – DataFrame of individual customer purchase history</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>cnt of puchases by customer</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.model.feature_engineering.sec_since_last_purchase">
+<span class="sig-prename descclassname"><span class="pre">ds_project.model.feature_engineering.</span></span><span class="sig-name descname"><span class="pre">sec_since_last_purchase</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">device_id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt_purchase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_existing_cust</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">customer_hist</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">DataFrame</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#ds_project.model.feature_engineering.sec_since_last_purchase" title="Permalink to this definition"></a></dt>
+<dd><p>derives the time elapsed since the last purchase of a customer</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>device_id</strong> – identifier of an individual customer</p></li>
+<li><p><strong>dt_purchase</strong> – timestamp of purchase for specific transaction</p></li>
+<li><p><strong>is_existing_cust</strong> – True if customer has purchase history</p></li>
+<li><p><strong>customer_hist</strong> – DataFrame of individual customer purchase history</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>time elapsed in seconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.model.feature_engineering.sec_since_signup">
+<span class="sig-prename descclassname"><span class="pre">ds_project.model.feature_engineering.</span></span><span class="sig-name descname"><span class="pre">sec_since_signup</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt_signup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt_purchase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#ds_project.model.feature_engineering.sec_since_signup" title="Permalink to this definition"></a></dt>
+<dd><p>derives the time elapsed between signup and purchase for current transaction</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>dt_signup</strong> – timestamp of signup for specific transaction</p></li>
+<li><p><strong>dt_purchase</strong> – timestamp of purchase for specific transaction</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>time elapsed in seconds</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+<section id="module-ds_project.model.input_validation">
+<span id="ds-project-model-input-validation-module"></span><h2>ds_project.model.input_validation module<a class="headerlink" href="#module-ds_project.model.input_validation" title="Permalink to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.model.input_validation.is_data_missing">
+<span class="sig-prename descclassname"><span class="pre">ds_project.model.input_validation.</span></span><span class="sig-name descname"><span class="pre">is_data_missing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#ds_project.model.input_validation.is_data_missing" title="Permalink to this definition"></a></dt>
+<dd><p>Tests for missing data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw_data</strong> – original data dict</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if all values are present, else False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.model.input_validation.is_dates_consistent">
+<span class="sig-prename descclassname"><span class="pre">ds_project.model.input_validation.</span></span><span class="sig-name descname"><span class="pre">is_dates_consistent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dt_signup</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dt_purchase</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#ds_project.model.input_validation.is_dates_consistent" title="Permalink to this definition"></a></dt>
+<dd><p>Tests for consistency of timestamps of a transaction
+:param dt_signup: timestamp of signup for specific transaction
+:param dt_purchase: timestamp of purchase for specific transaction
+:return: True if timestamps are consistent, else False</p>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.model.input_validation.is_dtypes_consistent">
+<span class="sig-prename descclassname"><span class="pre">ds_project.model.input_validation.</span></span><span class="sig-name descname"><span class="pre">is_dtypes_consistent</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#ds_project.model.input_validation.is_dtypes_consistent" title="Permalink to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw_data</strong> – original data dict</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if all values are present, else False</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="ds_project.model.input_validation.is_valid_input">
+<span class="sig-prename descclassname"><span class="pre">ds_project.model.input_validation.</span></span><span class="sig-name descname"><span class="pre">is_valid_input</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">raw_data</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#ds_project.model.input_validation.is_valid_input" title="Permalink to this definition"></a></dt>
+<dd><p>Evaluates raw transaction data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>raw_data</strong> – dictionary of transation data of a single purchase</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True if data is consistent, False if data is corrupted</p>
+</dd>
+</dl>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="ds_project.userapi.html" class="btn btn-neutral float-left" title="UserAPI" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="ds_project.data.html" class="btn btn-neutral float-right" title="DataAPI" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2022, Christoph Puffitsch, Philippe Lerch.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+UserAPI
+=======
+
+The UserAPI gets the raw transaction data from the UserInterface and passes it to the ModelAPI.
+Later it returns the classification result, received from the ModelAPI to the UserAPI.
+
+ds\_project.userapi.userapi module
+----------------------------------
+
+.. automodule:: ds_project.userapi.userapi
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -1,0 +1,14 @@
+DataAPI
+=======
+
+The DataAPI receives raw transaction data and the classification result from the ModelAPI. It stores the data to .csv
+file for later use.
+
+ds\_project.data.dataapi module
+-------------------------------
+
+.. automodule:: ds_project.data.dataapi
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
