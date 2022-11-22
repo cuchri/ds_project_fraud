@@ -22,6 +22,12 @@ class info(BaseModel):
    
 @app.post("/")
 async def result(info: Request):
+    """
+        Works as a proxy; passes through raw transaction data
+
+        :param info: raw transaction data
+        :return response: result of the classification
+    """
     data = await info.json()
     res = requests.post(modelapi_url, data=json.dumps(data), headers={'Content-Type': 'application/json'})
     response=res.json()
